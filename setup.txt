@@ -455,7 +455,9 @@ map
  create mode 100644 site/sitemap.xml.gz
 ```
 I think that worked.
-That was the end of the usefulness of that tutorial. It told me to put `git commit -m “Your Message”` and `git push origin master` but I just got error messages that I didn't understand. Then finally I found the [tutorial I needed](https://www.datacamp.com/tutorial/git-push-pull) to finish the setup. It told me to go to the GitHub web interface, select the big green `<> Code` button and copy the https link to the repository. Then I typed
+That was the end of the usefulness of that tutorial. It told me to put `git commit -m “Your Message”` and `git push origin master` but I just got error messages that I didn't understand. Then finally I found the [tutorial I needed](https://www.datacamp.com/tutorial/git-push-pull) to finish the setup. It told me to go to the GitHub web interface, select the big green `<> Code` button and copy the https link to the repository. 
+![Web repository](./images/clone_repository_https.png)
+Then I typed
 ```
 git remote add origin 'git@github.com:svavarkonn/MkDocs.git'
 ```
@@ -469,6 +471,7 @@ To deploy the page to GitHub Pages, I followed this [tutorial]() in the Material
 mkdocs gh-deploy --force
 ```
 That worked, and this test site is now live!
+Adding to my Git woes, the `mkdocs serve` command no longer updates the site. At the line that I changed I get some Git message that something changed. When I type `git commit -m "Some message"`, it says I'm up to date. I don't like Git so far, it really gets in the way. Maybe I can only use `mkdocs build` now.
 
 ### Page source button
 The Markdown code for the View page Source button is like this:
