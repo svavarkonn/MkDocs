@@ -1,0 +1,47 @@
+site_name: My Docs
+theme:
+  name: material
+  logo: images\SK_logo.svg
+  favicon: images\SK_logo.svg
+  features:
+    - content.code.annotate
+    - navigation.instant
+    - navigation.tabs
+
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+      primary: red
+      accent: red
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+      primary: red
+      accent: red
+markdown_extensions:
+
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - admonition
+  - attr_list
+  - md_in_html
+  
+nav:
+    - 'index.md'
+    - 'code.md'
+    - 'setup.md'
+use_directory_urls: false
+
+copyright: Copyright &copy; 2023 Svavar Konráðsson
