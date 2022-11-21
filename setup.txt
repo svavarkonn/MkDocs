@@ -1,5 +1,6 @@
 #Setup
 
+
 In a video call, [Árni Björnsson](https://fabacademy.org/2022/labs/isafjordur/students/arni-bjornsson/) showed Móses and me how to set up MkDocs and Git. I've summarized all the steps here, with a few extra resources I found along the way:
 
 ##MkDocs setup from scratch
@@ -82,7 +83,10 @@ mkdocs serve
 ```
 Now open your browser and write [localhost:8000](localhost:8000) in the address bar. Voilá! We have a live preview for an MkDocs website!
 
-![Material theme](./images/material.png)
+=== "Material theme"
+    ![Material theme](./images/material.png)
+=== "Default theme"
+    ![Default theme](./images/new.png)
 
 The source code for this site, written in Markdown, looks like this:
 
@@ -125,7 +129,7 @@ use_directory_urls: false
 ```
 It works! And the first solution is unnecessary; MkDocs will infer the site navigation based on the pages you create in the docs folder.
 
-Setting up MkDocs and getting the live preview working took me an hour in the morning. Writing up how I did it took me the rest of the day. It was a great way to learn Markdown. I like Markdown, with one exception; I don't have the ` symbol on my keyboard. I need to use that quite a lot for code snippets. Now this page and its source code serve as my reference in writing documentation. On any page, click the document icon in the footer to open its source code. I used the 
+Setting up MkDocs and getting the live preview working took me an hour in the morning. Writing up how I did it took me the rest of the day. It was a great way to learn Markdown. I like Markdown, with one exception; I don't have the ` symbol on my keyboard. I need to use that quite a lot for code snippets. Now this page serves as my reference in writing documentation.
 
 !!! note
     To enable code highlighting (coloring the code, similar to how it looks in the VSCode editor), I added the following lines to `mkdocs.yml`:
@@ -190,16 +194,16 @@ There is a way to toggle between light and dark mode. [This tutorial](https://sq
           toggle:
             icon: material/brightness-7 
             name: Switch to dark mode
-          primary: deep orange
-          accent: deep orange
+          primary: red
+          accent: red
 
         # Palette toggle for dark mode
         - scheme: slate
           toggle:
             icon: material/brightness-4
             name: Switch to light mode
-         primary: deep orange
-          accent: deep orange
+         primary: red
+          accent: red
     ```
 ``` title="Source code for the content tabs above"
     === "Light/dark toggle"
@@ -228,16 +232,16 @@ There is a way to toggle between light and dark mode. [This tutorial](https://sq
             toggle:
                 icon: material/brightness-7 
                 name: Switch to dark mode
-            primary: deep orange
-            accent: deep orange
+            primary: red
+            accent: red
 
             # Palette toggle for dark mode
             - scheme: slate
             toggle:
                 icon: material/brightness-4
                 name: Switch to light mode
-            primary: deep orange
-            accent: deep orange
+            primary: red
+            accent: red
         ```
 ```
 !!! note
@@ -265,4 +269,212 @@ theme:
 ```
 
 ##GitHub setup
-To set up a GitHub connection, I installed the [GitHub Pull Requests and Issues extension](https://code.visualstudio.com/docs/sourcecontrol/github).
+To set up a GitHub connection, I followed [this official VSCode tutorial](https://code.visualstudio.com/docs/sourcecontrol/github) and installed the [GitHub Pull Requests and Issues extension](https://code.visualstudio.com/docs/sourcecontrol/github). I was supposed to sign in but no sign in button appeared when I selected the GitHub icon in the left menu bar in VSCode. I did some more Googling and found an [unofficial tutorial](https://surajondev.com/2021/02/04/connect-your-github-to-vs-code/) that told me to sign in via the Accounts symbol in the bottom left corner of VSCode. I selected Turn on edit sessions sync and signed in with Github in a browser. Then I was redirected to VSCode, but that wasn't the end of it. I selected Accounts again and there an option to sign in to the Github extension appeared. I selected that, signed in in the browser and now I was finally signed in and could continue with the GitHub setup. But the [the official tutorial](https://code.visualstudio.com/docs/sourcecontrol/github) didn't tell me how to get files from my computer to GitHub. I needed to look elsewhere. I threw my hands up in the air and Googled ```i have code on my computer how do i create github repository```. The first result was [this official GitHub guide](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github). The third step resulted in an error: `The token '&&' is not a valid statement separator in this version.` What then? I like MkDocs so far but I don't like Git so far. Let's see what [this tutorial](https://gist.github.com/RJ722/a9602ef70567ca65ce0ba698747c9fed) gets me:
+```
+PS C:\code\Mkdocs> git init -b main
+Initialized empty Git repository in C:/code/Mkdocs/.git/
+PS C:\code\Mkdocs> git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        docs/
+        mkdocs.yml
+        site/
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\code\Mkdocs> git commit
+On branch main
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        docs/
+        mkdocs.yml
+        site/
+
+nothing added to commit but untracked files present (use "git add" to track) 
+PS C:\code\Mkdocs> git push
+fatal: No configured push destination.
+Either specify the URL from the command-line or configure a remote repository using 
+
+    git remote add <name> <url>
+
+and then push using the remote name
+
+    git push <name>
+```
+Sigh. Let's try to create a repository in the GitHub web interface and see if we can push these files to it.
+```
+PS C:\code\Mkdocs> git remote add Mkdocs https://github.com/svavarkonn/MkDocs       
+PS C:\code\Mkdocs> git push Mkdocs
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream Mkdocs main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+```
+What does upstream mean? OK, maybe I need to push specific files and folders inside the Mkdocs directory.
+```
+PS C:\code\Mkdocs> git remote add mkdocs.yml https://github.com/svavarkonn/MkDocs   
+PS C:\code\Mkdocs> git remote add site https://github.com/svavarkonn/MkDocs
+PS C:\code\Mkdocs> git remote add docs https://github.com/svavarkonn/MkDocs
+```
+Nothing. Nothing happened.
+```
+PS C:\code\Mkdocs> git push MkDocs
+error: src refspec refs/heads/main does not match any
+error: failed to push some refs to 'MkDocs'
+```
+So far, this is not fun.
+
+Ok, new day, new Git attempt. I found [yet another tutorial](https://surajondev.com/2021/02/04/connect-your-github-to-vs-code/), which got me some of the way. I cloned the empty web repository to my computer by creating a new folder under `code` and typing:
+```
+git clone https://github.com/svavarkonn/MkDocs.git
+Cloning into 'MkDocs'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+```
+into the terminal. That worked. Then I copied my MkDocs files into that folder in Windows Explorer. That's probably not approved by veteran Git users, but I can get something going now and learn the proper way to do things later.
+![Explorer copy](./images/git_move_in_explorer.png)
+I tried some `git add` commands:
+```
+PS C:\code\Test site\MkDocs> git add mkDocs
+fatal: pathspec 'mkDocs' did not match any files
+PS C:\code\Test site\MkDocs> git add docs  
+warning: in the working copy of 'docs/images/SK_logo.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/images/page_source.svg', LF will be replaced by CRLF the next time Git touches it
+PS C:\code\Test site\MkDocs> git add site
+warning: in the working copy of 'site/404.html', LF will be replaced 
+by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/bundle.d6c3db9e.min.js', LF will be replaced by CRLF the next time Git touches itwarning: in the working copy of 'site/assets/javascripts/bundle.d6c3db9e.min.js.map', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.da.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.de.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.du.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.es.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.fi.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.fr.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.hu.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.it.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.nl.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.no.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.pt.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.ro.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.ru.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.sv.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.tr.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/tinysegwarning: in the working copy of 'site/assets/javascripts/workers/search.16e2a7d4.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/workers/search.16e2a7d4.min.js.map', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/code.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/setup.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/sitemap.xml', LF will be replaced by CRLF the next time Git touches it
+PS C:\code\Test site\MkDocs> git add mkdocs.yml
+```
+Then I tried to commit:
+```
+PS C:\code\Test site\MkDocs> git commit -m "Copied files into git folder"
+[main 1bba716] Copied files into git folder
+ Committer: Svavar Konráðsson - MI <svavark@fvi.is>
+Your name and email address were configured automatically based      
+on your username and hostname. Please check that they are accurate.  
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+    git commit --amend --reset-author
+
+ 61 files changed, 10495 insertions(+)
+ create mode 100644 docs/code.md
+ create mode 100644 docs/images/SK_logo.svg
+ create mode 100644 docs/images/material.png
+ create mode 100644 docs/images/new.png
+ create mode 100644 docs/images/page_source.svg
+ create mode 100644 docs/images/schemas.png
+ create mode 100644 docs/images/setup.png
+ create mode 100644 docs/images/setup_error.png
+ create mode 100644 docs/index.md
+ create mode 100644 docs/setup.md
+ create mode 100644 docs/setup.txt
+ create mode 100644 mkdocs.yml
+ create mode 100644 site/404.html
+ create mode 100644 site/assets/images/favicon.png
+ create mode 100644 site/assets/javascripts/bundle.d6c3db9e.min.js   
+ create mode 100644 site/assets/javascripts/bundle.d6c3db9e.min.js.map
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ar.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.da.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.de.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.du.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.es.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.fi.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.fr.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.hi.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.hu.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.it.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ja.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.jp.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ko.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.multi.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.nl.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.no.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.pt.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ro.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ru.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.stemmer.support.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.sv.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ta.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.th.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.tr.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.vi.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.zh.min.js  
+ create mode 100644 site/assets/javascripts/lunr/tinyseg.js
+ create mode 100644 site/assets/javascripts/lunr/wordcut.js
+ create mode 100644 site/assets/javascripts/workers/search.16e2a7d4.min.js
+ create mode 100644 site/assets/javascripts/workers/search.16e2a7d4.m create mode 100644 site/assets/stylesheets/main.472b142f.min.css    
+ create mode 100644 site/assets/stylesheets/main.472b142f.min.css.map create mode 100644 site/assets/stylesheets/palette.08040f6c.min.css 
+map
+ create mode 100644 site/code.html
+ create mode 100644 site/images/material.png
+ create mode 100644 site/images/new.png
+ create mode 100644 site/images/schemas.png
+ create mode 100644 site/images/setup_error.png
+ create mode 100644 site/index.html
+ create mode 100644 site/search/search_index.json
+ create mode 100644 site/setup.html
+ create mode 100644 site/sitemap.xml
+ create mode 100644 site/sitemap.xml.gz
+```
+I think that worked.
+That was the end of the usefulness of that tutorial. It told me to put `git commit -m “Your Message”` and `git push origin master` but I just got error messages that I didn't understand. Then finally I found the [tutorial I needed](https://www.datacamp.com/tutorial/git-push-pull) to finish the setup. It told me to go to the GitHub web interface, select the big green `<> Code` button and copy the https link to the repository. Then I typed
+```
+git remote add origin 'git@github.com:svavarkonn/MkDocs.git'
+```
+into the terminal and in a burst of impatience, I just typed
+```
+git push
+```
+without any info or qualifiers. But it worked, and my files are now in my web repository!
+To deploy the page to GitHub Pages, I followed this [tutorial]() in the Material for MkDocs documentation. First I tried to add a file that deploys the site automatically when a new commit is pushed, but when I couldn't get that file into the web repository I deployed the site manually with
+```
+mkdocs gh-deploy --force
+```
+That worked, and this test site is now live!
+
+### Page source button
+The Markdown code for the View page Source button is like this:
+```
+[View page source](setup.txt){ .md-button }
+```
+I'm going to put it on every page of my documentation. If you see an interesting element in the page, you can then easily see how to set it up. Pointing to a `.md` file doesn't work, so my workaround is to make a copy of the Markdown source file and change its extension to `.txt`. Maybe I can do that automatically with a `BAT` file. I need to read up on how batch files work. 
+
+[View page source](setup.txt){ .md-button }
