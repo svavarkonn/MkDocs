@@ -355,8 +355,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#page-source" class="md-nav__link">
-    Page source
+  <a href="#page-source-button" class="md-nav__link">
+    Page source button
   </a>
   
 </li>
@@ -436,8 +436,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#page-source" class="md-nav__link">
-    Page source
+  <a href="#page-source-button" class="md-nav__link">
+    Page source button
   </a>
   
 </li>
@@ -893,10 +893,14 @@ That was the end of the usefulness of that tutorial. It told me to put <code>git
 into the terminal and in a burst of impatience, I just typed
 <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>git push
 </code></pre></div>
-without any info or qualifiers. But it worked, and my files are now in my web repository!</p>
-<h3 id="page-source">Page source</h3>
+without any info or qualifiers. But it worked, and my files are now in my web repository!
+To deploy the page to GitHub Pages, I followed this <a href="">tutorial</a> in the Material for MkDocs documentation. First I tried to add a file that deploys the site automatically when a new commit is pushed, but when I couldn't get that file into the web repository I deployed the site manually with
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>mkdocs gh-deploy --force
+</code></pre></div>
+That worked, and this test site is now live!</p>
+<h3 id="page-source-button">Page source button</h3>
 <p>The Markdown code for the View page Source button is like this:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>[View page source](setup.txt){ .md-button }
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>[View page source](setup.txt){ .md-button }
 </code></pre></div>
 I'm going to put it on every page of my documentation. If you see an interesting element in the page, you can then easily see how to set it up. Pointing to a <code>.md</code> file doesn't work, so my workaround is to make a copy of the Markdown source file and change its extension to <code>.txt</code>. Maybe I can do that automatically with a <code>BAT</code> file. I need to read up on how batch files work. </p>
 <p><a class="md-button" href="setup.txt">View page source</a></p>
