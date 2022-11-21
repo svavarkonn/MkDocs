@@ -332,6 +332,138 @@ error: src refspec refs/heads/main does not match any
 error: failed to push some refs to 'MkDocs'
 ```
 So far, this is not fun.
+
+Ok, new day, new Git attempt. I found [yet another tutorial](https://surajondev.com/2021/02/04/connect-your-github-to-vs-code/), which got me some of the way. I cloned the empty web repository to my computer by creating a new folder under `code` and typing:
+```
+git clone https://github.com/svavarkonn/MkDocs.git
+Cloning into 'MkDocs'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+```
+into the terminal. That worked. Then I copied my MkDocs files into that folder in Windows Explorer. That's probably not approved by veteran Git users, but I can get something going now and learn the proper way to do things later.
+![Explorer copy](./images/git_move_in_explorer.png)
+I tried some `git add` commands:
+```
+PS C:\code\Test site\MkDocs> git add mkDocs
+fatal: pathspec 'mkDocs' did not match any files
+PS C:\code\Test site\MkDocs> git add docs  
+warning: in the working copy of 'docs/images/SK_logo.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/images/page_source.svg', LF will be replaced by CRLF the next time Git touches it
+PS C:\code\Test site\MkDocs> git add site
+warning: in the working copy of 'site/404.html', LF will be replaced 
+by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/bundle.d6c3db9e.min.js', LF will be replaced by CRLF the next time Git touches itwarning: in the working copy of 'site/assets/javascripts/bundle.d6c3db9e.min.js.map', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.da.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.de.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.du.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.es.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.fi.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.fr.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.hu.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.it.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.nl.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.no.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.pt.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.ro.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.ru.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.sv.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.tr.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/tinysegwarning: in the working copy of 'site/assets/javascripts/workers/search.16e2a7d4.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/workers/search.16e2a7d4.min.js.map', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/code.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/setup.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/sitemap.xml', LF will be replaced by CRLF the next time Git touches it
+PS C:\code\Test site\MkDocs> git add mkdocs.yml
+```
+Then I tried to commit:
+```
+PS C:\code\Test site\MkDocs> git commit -m "Copied files into git folder"
+[main 1bba716] Copied files into git folder
+ Committer: Svavar Konráðsson - MI <svavark@fvi.is>
+Your name and email address were configured automatically based      
+on your username and hostname. Please check that they are accurate.  
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+    git commit --amend --reset-author
+
+ 61 files changed, 10495 insertions(+)
+ create mode 100644 docs/code.md
+ create mode 100644 docs/images/SK_logo.svg
+ create mode 100644 docs/images/material.png
+ create mode 100644 docs/images/new.png
+ create mode 100644 docs/images/page_source.svg
+ create mode 100644 docs/images/schemas.png
+ create mode 100644 docs/images/setup.png
+ create mode 100644 docs/images/setup_error.png
+ create mode 100644 docs/index.md
+ create mode 100644 docs/setup.md
+ create mode 100644 docs/setup.txt
+ create mode 100644 mkdocs.yml
+ create mode 100644 site/404.html
+ create mode 100644 site/assets/images/favicon.png
+ create mode 100644 site/assets/javascripts/bundle.d6c3db9e.min.js   
+ create mode 100644 site/assets/javascripts/bundle.d6c3db9e.min.js.map
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ar.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.da.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.de.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.du.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.es.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.fi.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.fr.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.hi.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.hu.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.it.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ja.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.jp.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ko.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.multi.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.nl.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.no.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.pt.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ro.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ru.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.stemmer.support.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.sv.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ta.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.th.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.tr.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.vi.min.js  
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.zh.min.js  
+ create mode 100644 site/assets/javascripts/lunr/tinyseg.js
+ create mode 100644 site/assets/javascripts/lunr/wordcut.js
+ create mode 100644 site/assets/javascripts/workers/search.16e2a7d4.min.js
+ create mode 100644 site/assets/javascripts/workers/search.16e2a7d4.m create mode 100644 site/assets/stylesheets/main.472b142f.min.css    
+ create mode 100644 site/assets/stylesheets/main.472b142f.min.css.map create mode 100644 site/assets/stylesheets/palette.08040f6c.min.css 
+map
+ create mode 100644 site/code.html
+ create mode 100644 site/images/material.png
+ create mode 100644 site/images/new.png
+ create mode 100644 site/images/schemas.png
+ create mode 100644 site/images/setup_error.png
+ create mode 100644 site/index.html
+ create mode 100644 site/search/search_index.json
+ create mode 100644 site/setup.html
+ create mode 100644 site/sitemap.xml
+ create mode 100644 site/sitemap.xml.gz
+```
+I think that worked.
+That was the end of the usefulness of that tutorial. It told me to put `git commit -m “Your Message”` and `git push origin master` but I just got error messages that I didn't understand. Then finally I found the [tutorial I needed](https://www.datacamp.com/tutorial/git-push-pull) to finish the setup. It told me to go to the GitHub web interface, select the big green `<> Code` button and copy the https link to the repository. Then I typed
+```
+git remote add origin 'git@github.com:svavarkonn/MkDocs.git'
+```
+into the terminal and in a burst of impatience, I just typed
+```
+git push
+```
+without any info or qualifiers. But it worked, and my files are now in my web repository!
 ### Page source
 The Markdown code for the View page Source button is like this:
 ```
