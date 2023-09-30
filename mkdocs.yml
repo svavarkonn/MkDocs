@@ -1,29 +1,37 @@
 site_name: My Docs
+
+repo_name: Github Repository
+repo_url: https://github.com/svavarkonn/MkDocs
+
 theme:
   name: material
-  logo: images\SK_logo.svg
-  favicon: images\SK_logo.svg
+  logo: images/SK_logo.svg
+  favicon: images/SK_logo.svg
   features:
     - content.code.annotate
     - navigation.instant
+    - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
+  custom_dir: docs/overrides
+
 
   palette: 
     # Palette toggle for light mode
     - scheme: default
       toggle:
-        icon: material/brightness-7 
+        icon: material/lightbulb
         name: Switch to dark mode
-      primary: red
-      accent: red
+      primary: indigo
+      accent: deep orange
     # Palette toggle for dark mode
     - scheme: slate
       toggle:
-        icon: material/brightness-4
+        icon: material/lightbulb-outline 
         name: Switch to light mode
 
-      primary: red
-      accent: red
+      primary: indigo
+      accent: amber
 markdown_extensions:
 
   - pymdownx.highlight:
@@ -39,9 +47,12 @@ markdown_extensions:
   - md_in_html
   
 nav:
-    - 'index.md'
-    - 'code.md'
-    - 'setup.md'
+  - Home: index.md
+  - Code tests:  code.md
+  - Setup: setup.md
+  - Weekly Assignments: 
+    - First week: first-week.md
+    - Second week: robot_spiral_1.md
 use_directory_urls: false
 
 copyright: Copyright &copy; 2023 Svavar Konráðsson

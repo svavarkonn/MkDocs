@@ -330,8 +330,3 @@
     //view.displayMessage("Tap tap, is this thing on?");
     ```
 
-<style>
-  .md-content__button {
-    display: none;
-  }
-</style>
