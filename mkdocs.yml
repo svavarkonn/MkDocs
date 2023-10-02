@@ -48,11 +48,10 @@ markdown_extensions:
   
 nav:
   - Home: index.md
-  - Code tests:  code.md
   - Setup: setup.md
-  - Weekly Assignments: 
-    - First week: first-week.md
-    - Second week: robot_spiral_1.md
+  - Seeed: seeed.md
+  - Code tests:  code.md
+  - Robot notes: robot_spiral_1.md
 use_directory_urls: false
 
 copyright: Copyright &copy; 2023 Svavar Konráðsson
