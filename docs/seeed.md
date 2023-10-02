@@ -10,6 +10,14 @@ I took part in the [Fab Academy](https://fabacademy.org/) in 2023 and I have to 
 
 ![Electronics design journey](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/pcb_design_journey.jpg){: style="width:100%"}*The evolution of my electronics design skills over the course of the Fab Academy. The course puts a heavy emphasis on digital electronics, because that's what makes things come alive!*
 
+My fun 1 minute final project video, showcasing the educational robot arm that I made:
+
+<video controls width=100%>
+        <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.mp4" type="video/mp4">
+    </video>*1 minute presentation video.*
+
+I'm planning to have Seeed Studio fabricate the boards for the next version of the Baksi robot arm. That version will be made of motors and PCBs and nothing else! If there's interest, it would be exciting to also try to sell the robot as a kit in the Seeed Studio store.
+
 ## My first circuit
 
 I designed my first electronic circuit in January 2023. It was a Xiao RP2040, a button and a blue LED with a current-limiting resistor.
@@ -121,7 +129,7 @@ I only had through-hole female headers, so I bent their legs in order to be able
 
 ![Behind the machine](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week10/reality.jpg){: style="width:100%"}*The reality behind the facade. The USB hub (with AC adapter) and the big power supply are only there to supply 5V to the Xiao and 12V to the stepper driver, because we didn't have time to learn how to make a power supply. I realized then that I need to think seriously about a neat way to power my final project.*
 
-## Machine controller spiral 3 (not my work)
+### Machine controller spiral 3 (not my work)
 
 ![Stepper Modular Thing](https://fabacademy.org/2023/labs/akureyri/students/andri-semundsson/images/myStepperHbridgeBoardSoldered.JPG){: style="width:100%"}*The first Stepper Modular Thing that [Andri](https://fabacademy.org/2023/labs/akureyri/students/andri-semundsson/index.html) made. He had to do considerable editing to make the circuit fabricatable.*
 
@@ -321,3 +329,62 @@ I also noticed a lot of compliance in the structure. It seems to stem mostly fro
 <video controls width=100%>
   <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/bending.mp4" type="video/mp4">
 </video>
+
+
+# Final project spiral 2
+
+## Basic shape study
+
+![Shape sketches](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/basic_shape_study.jpg){: style="width:100%"}*Basic shape study. Since the arm is made of flat PCBs, I don't have many parameters to play with.*
+
+![Basic shape dimensions](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/basic_shape_dimensions.jpg){: style="width:100%"}*Dimensions of the basic shape.*
+
+![Parametric shape design](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/parametric_shape_design.jpg){: style="width:100%"}*I set the diameter of all the arcs to `d3`, which is the diameter of the first arc. I change that and the whole model updates.*
+
+I eventually decided to make all the joints the same shape, because it's simpler and because when the big arcs go inward, there isn't enough room on the board for all the components. So here's the final 3D design:
+
+![baksi spiral 2](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/baksi_spiral2.jpg){: style="width:100%"}*Here's baksi, the spiral 2 version.*
+
+#### Design files
+
+[Download baksi spiral 2 concept Fusion 360 model](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baksi-spiral2.f3d){ .md-button }
+
+[Download 3D print with internal channels](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baksi_joint-brd.f3d){ .md-button }
+
+[Download base](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baksi_base_final.f3z){ .md-button }
+
+## Electronics design
+
+I swapped out the Xiao SAMD21 for the bare SAMD21 microcontroller. I made this design spiral in the Fab Lab and I'm planning to have Seeed Studio make the boards for design spiral 3.
+
+![Baks robot joint schematic](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/baks_schematic.jpg){:style="width:100%"}*The baksi robot joint schematic.*
+
+![Baks robot joint PCB layout](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/baks_pcb.jpg){:style="width:100%"}*The baksi robot joint PCB layout.*
+
+## PCB production
+
+My first attempt at milling the PCB failed, and I broke the smallest end mill (the 0.01" one). I only have one left now. Looking back, I made the fundamental mistake of not making a small test of the most challenging aspect of the process. I'm going to try a V-bit now.
+
+When soldering the teeny tiny DRV8313 motor driver onto my beautiful board, I found that its legs are very thin and flexible, and so when you've fastened the driver to the big ground plane with a heat gun, you can bend the legs into place, as long as they're close to their intended copper pad.
+
+After soldering, I successfully put the bootloader on the SAMD21 chip and then programmed it with the SimpleFOC code. But I got no reading from the magnetic angle sensor and the serial monitor said that it detected no movement from the motor. The motor sounded weird.
+
+### Design files
+
+[Download baks KiCAD project](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks.zip){ .md-button }
+
+[Download baks_joint2_traces.png](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks_joint2_traces.png){ .md-button }
+
+[Download baks_joint2_traces_exterior.png](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks_joint2_traces_exterior.png){ .md-button }
+
+[Download baks_joint2_holes_interior.png](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks_joint2_holes_interior.png){ .md-button }
+
+### Final project presentation
+
+![Presentation Slide](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.png){: style="width:100%"}*Presentation slide.*
+
+<video controls width=100%>
+        <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.mp4" type="video/mp4">
+    </video>*1 minute presentation video.*
+
+[![Live presentation](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/fab_academy_2023_cycle.jpg){: style="width:100%" }](https://vimeo.com/835552516#t=6:17)*Here I am presenting my final project to Professor [Neil Gershenfeld](https://youtu.be/YDjOS0VHEr4) and the instructors and students in the 2023 Fab Academy cycle. [Link to the video.](https://vimeo.com/835552516#t=6:17)*
