@@ -1473,6 +1473,7 @@
 <p><img alt="Xiao Femto pinout discovery" src="images/xiao_femto_pinout_discovery.jpg" style="width:100%" /><em>I connected each pin to an LED to discover the pin numbers.</em></p>
 <p>But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. I connected every pin to an LED using my <a href="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/week08.html#pcb-milling">LED debugging board</a> and was able to get the pinout of the Xiao Femto.</p>
 <p><img alt="Xiao Femto pinout" src="images/xiao_femto_pinout.jpg" style="width:100%" /></p>
+<p>The sensing board is integrated into Baksi but it doesn't turn on. I seem to have misunderstood how the power works on the Xiao module. I thought that I could power it through the 5V pin, but that seems to only offer 5V out. I probably need to change the connections and power the Xiao through the USB connector.</p>
 <h4 id="final-project-presentation">Final project presentation</h4>
 <p><img alt="Presentation Slide" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.png" style="width:100%" /><em>Presentation slide.</em></p>
 <video controls width=100%>
