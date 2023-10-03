@@ -49,7 +49,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Setup: setup.md
-  - Seeed: seeed.md
+  - Seeed Studio: seeed.md
   - Code tests:  code.md
   - Robot notes: robot_spiral_1.md
 use_directory_urls: false
