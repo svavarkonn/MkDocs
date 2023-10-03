@@ -6,17 +6,19 @@
 
 [![Fab Academy](https://fablab.is/wp-content/uploads/2017/11/fab-academy2.jpg){: style="width:100%"}](https://fabacademy.org/)
 
-I took part in the [Fab Academy](https://fabacademy.org/) in 2023 and I have to say, the experience changed me for the better. 
+I took part in the [Fab Academy](https://fabacademy.org/) in 2023 and I have to say, the experience changed me for the better. My instructor was [Þórarinn Bjartur Breiðjfjörð Gunnarsson](https://fabacademy.org/archives/2015/eu/students/gunnarsson.thorarinn_b.b/index.html), director of Fab Lab Ísafjörður.
 
 ![Electronics design journey](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/pcb_design_journey.jpg){: style="width:100%"}*The evolution of my electronics design skills over the course of the Fab Academy. The course puts a heavy emphasis on digital electronics, because that's what makes things come alive!*
+
+You'll notice Xiao modules being heavily used throughout my electronics work. They are incredibly handy, since I can put pin headers on them and try things out on a breadboard, and then embed them in my own custom circuits. They have a built-in USB-C connector (it's not easy to mill the pads for those connectors) and an RGB LED which I've used to confirm that my PWM motor control code is working. If I want good analog peripherals to connect to sensors, I'll use the Xiao SAMD21, if I want raw processing power, I'll use the Xiao RP2040 and if I want WiFi networking I'll grab the Xiao ESP32. And more Xiaos have been added; it would be fun to try a bit of machine learning on a microcontroller module.
 
 My fun 1 minute final project video, showcasing the educational robot arm that I made:
 
 <video controls width=100%>
         <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.mp4" type="video/mp4">
-    </video>*1 minute presentation video.*
+    </video>*I'd love to show Baksi the robot arm at Maker Faire Shenzen.*
 
-I'm planning to have Seeed Studio fabricate the boards for the next version of the Baksi robot arm. That version will be made of motors and PCBs and nothing else! If there's interest, it would be exciting to also try to sell the robot as a kit in the Seeed Studio store.
+I'm planning to have Seeed Studio fabricate the boards for the next version of the Baksi robot arm. That version will be made of motors and PCBs and nothing else! I've checked, and the main parts are available in the Seeed Studio part catalogue. If there's interest, it would be exciting to also try to sell the robot as a kit in the Seeed Studio store. I really want to take this robot all the way to market, so that it can be used to teach electronics, robotics and programming in an interesting way.
 
 ## My first circuit
 
@@ -91,6 +93,47 @@ And the Arduino code:
 
 [Download IR sensor Arduino code](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week11/xiao_phototransistor.ino){ .md-button }
 
+## Visualizing a light sensor
+
+I experimented with creating a computer interface for the light sensor. The code that runs on the Xiao is very simple. It comes from Adrián Torres. The code uses analogRead to read the value from the IR sensor and then writes it to the serial port:
+
+I used a few different Python scripts to receive the IR light values from the serial port. First I tried Neil Gershenfeld's [hello.light.45.py](http://academy.cba.mit.edu/classes/input_devices/light/hello.light.45.py) code but it reads single characters from the serial port and I had programmed the Xiao to send whole lines at a time. I stopped there with Neil's code.
+
+Then I found a nice [tutorial](https://www.youtube.com/watch?v=AHr94RtMj1A) showing how you can list the available COM devices in the terminal, pick one by typing its number, and open it using serial.tools. 
+
+Once the serial port is open, I run an infinite while loop and read one line from the serial port at a time, decode it using UTF-8 character encoding and then turn that string into an integer. I do the reading and converting in only two lines of Python code:
+
+``` python
+packet = serialInst.readline()
+y = int(packet.decode('utf'))
+```
+
+Then, to get a very rudimentary graphical representation going, I use an if statement and display one `-` if the value is between 0 and 100, display `--` if the value is between 100 and 200 and so on, up to 1000 (`----------`).
+
+<video controls width=100%>
+      <source src="images/week14/light_bars.mp4" type="video/mp4">
+</video>*As simple as it gets. This barely counts as a graphical user interface.*
+
+I also tried to make a GUI using Tkinter. I found a useful code snippet in example 1 in [this tutorial](https://pythonlobby.com/frames-in-tkinter-gui-programming-python-tkinter-tutorial/), which creates a small GUI window and displays a title and a red and green rectangle with empty space between them. It's static, but by using my y variable (the number that is streaming into the serial port) instead of hardcoded numbers, I can make the bar move.
+
+![Tkinter example](images/week14/tkinter_example.png){: style="width:100%"}*The static GUI example.*
+
+I could get the Tkinter interface to run separately and I could also get a stream of data from the IR sensor separately, but I had trouble combining them. Apparently, [the reason](https://robotic-controls.com/learn/python-guis/tkinter-serial) is that I have two infinite while loops and the one that comes first in the code blocks the other. While the code waits for input from the serial port, nothing else can happen. And while the interface is running, nothing else can happen. I couldn't figure this out using the examples that I found online.
+
+The following day I gave up and asked ChatGPT to change the code to make the two loops run concurrently. That resulted in code that ran, but I needed to make some changes to it. Only the grey bar was changing size between 0 and 1000 pixels, so I put 1000-y as the width of the black bar. That worked nicely. The interface was also sluggish, but I fixed that by changing `root.after(100, readFromSerial)` to `root.after(10, readFromSerial)`. Then there is a much shorter delay for updating the interface. 
+
+<video controls width=100%>
+      <source src="images/week14/ir_sensor_gui.mp4" type="video/mp4">
+</video>*We have a GUI that runs smoothly.*
+
+### Design files
+
+[Download IR sensor Arduino code](files/week11/xiao_phototransistor.ino){ .md-button }
+
+[Download Python terminal visualization code](files/week14/serialVisualizer.py){ .md-button }
+
+[Download Python GUI code](files/week14/ir_sensor5.py){ .md-button }
+
 ## The tea machine
 
 My next major step was a machine control board for the machine building group project. We made a tea-steeping machine.
@@ -143,7 +186,7 @@ Andri proceeded to make the board and Árni soldered the components onto it. It 
         <source src="https://fabacademy.org/2023/labs/akureyri/students/andri-semundsson/videos/modularThingsStepper.mp4" type="video/mp4">
     </video>*The second Stepper Modular Thing that Andri made. Wow! It's powered by the USB port!*
 
-We didn't have time to integrate it into our machine, but I'm very glad that Andri and our instructors were able to make a working Modular Thing. Seeing the Stepper Modular Thing working and being able to make the machine control board successfully combined to give me the confidence to try to make a robot arm joint immediately when I arrived back in Ísafjörður. See more info in [Output Devices week](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/week09.html#final-project-spiral-1).
+We didn't have time to integrate it into our machine, but I'm very glad that Andri and our instructors were able to make a working Modular Thing. Seeing the Stepper Modular Thing working and being able to make the machine control board successfully combined to give me the confidence to try to make a robot arm joint immediately when I arrived back in Ísafjörður.
 ## Our instructors
 
 We are lucky to have these instructors. Here are some images to prove it:
@@ -378,6 +421,20 @@ After soldering, I successfully put the bootloader on the SAMD21 chip and then p
 [Download baks_joint2_traces_exterior.png](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks_joint2_traces_exterior.png){ .md-button }
 
 [Download baks_joint2_holes_interior.png](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks_joint2_holes_interior.png){ .md-button }
+
+## Sensing board
+
+I also made a sensing board for Baksi. It contains an endstop button for the Z-axis as well as a capacitive step-response proximity sensor, so that it can sense when a human gets too close, and stop moving.
+
+![Sensing board schematic](images/sensing_board_schematic.jpg){:style="width:100%"}
+
+![Sensing board PCB](images/sensing_board_pcb.jpg){:style="width:100%"}
+
+I had a little trouble finding the right pin names for the Seeeduino Xiao SAMD21. In the first place, when I first connected it, it was set up as a Seeeduino Femto. I couldn't find much info on that online. I tried uploading an Arduino sketch to it as a Seeduino Xiao SAMD21, but it got bricked and didn't show up on my computer anymore. Not in the Arduino IDE and not in Device Manager either. 
+
+After a bit of Googling I found the [solution](https://naidoff.medium.com/how-to-unbrick-seeduino-xiao-board-without-external-programmer-if-it-was-bricked-while-flashing-fbed494a5034) to this problem. I shorted the connection between the RESET pads on one side of the Xiao's USB connector and it immediately appeared on my computer as a UF2 drive. I then tried uploading the same Arduino sketch to it as a Xiao Femto, whatever that is, and it worked. Fine.
+
+But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but they didn't work. I also tried my Blink all pins sketch, where I make every pin from 0 to 40 blink once and write its number to the serial monitor at the same time. But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. 
 
 ### Final project presentation
 
