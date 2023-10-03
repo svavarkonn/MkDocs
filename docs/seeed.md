@@ -16,7 +16,7 @@ Here's the concept sketch of my Fab Academy final project, a tiny and simple edu
 
 ![baks sketch 1](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/baks_sketch1.jpg){: style="width:100%"}
 
-Baksi (I added the "i" at the end because my son always calls it Baksi) is the noun version of the Icelandic verb baksa, which means to 'busy oneself' or to 'be industrious', usually in the context of toddlers playing energetically outside, digging and dragging logs about and throwing rocks. [Here's a video](https://vimeo.com/806145840#t=9m5s) where I describe the final project to Neil Gershenfeld during random review.
+Baksi (I added the "i" at the end because my son always calls it Baksi) is the noun version of the Icelandic verb baksa, which means to 'busy oneself' or to 'be industrious', usually in the context of toddlers playing energetically outside, digging and dragging logs about and throwing rocks. [Here's a video](https://vimeo.com/806145840#t=9m5s) where I describe the final project to Prof. Neil Gershenfeld.
 
 #### A bit of history
 I backed the original [uArm on Kickstarter](https://www.kickstarter.com/projects/ufactory/uarm-put-a-miniature-industrial-robot-arm-on-your) and enjoyed using it until I accidentally connected the power supply directly to the Arduino instead to the uArm Shield. The plan was to have it [fry doughnuts and frost them](https://hackaday.io/project/1172-uarm-vending-machine) but the arm ended up getting fried instead. The software part also intimidated me.
@@ -41,6 +41,8 @@ Since I have a history of frying robot arms, I have a few personal design goals 
 ![Baksi](images/baksi.jpg){: style="width:100%"}
 
 I ended up changing to a SCARA design, since it doesn't stress the motors as much. I also 3D printed a part to put underneath each PCB to stiffen it and hide a bunch of wires. Here's my fun 1 minute final project video, showcasing Baksi the robot:
+
+#### Featured video
 
 <video controls width=100%>
         <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.mp4" type="video/mp4">

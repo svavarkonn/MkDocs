@@ -398,6 +398,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#featured-video" class="md-nav__link">
+    Featured video
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -833,6 +840,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#featured-video" class="md-nav__link">
+    Featured video
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1204,7 +1218,7 @@
 <p>You'll notice Xiao modules being heavily used throughout my electronics work. They are recommended by the Fab Academy, which has traditionally only used bare microcontrollers. The Xiao modules are incredibly handy, since I can put pin headers on them and try things out on a breadboard, and then embed them in my own custom circuits. They have a built-in USB-C connector (it's not easy to mill the pads for those connectors) and an RGB LED which I've used to confirm that my PWM motor control code is working (see <a href="https://svavarkonn.github.io/MkDocs/seeed.html#led-pwm-test">here</a>). If I want good analog peripherals to connect to sensors (like in my <a href="https://svavarkonn.github.io/MkDocs/seeed.html#ir-sensor-board">IR sensor</a> and my <a href="https://svavarkonn.github.io/MkDocs/seeed.html#sensing-board">Baksi sensing board</a>), I'll use the Xiao SAMD21, if I want raw processing power, I'll use the Xiao RP2040 and if I want WiFi networking (like in the <a href="https://gitlab.fabcloud.org/pub/project/bootcamp-2023/fmcu/-/tree/main/fmcu-zoom">FMCU button</a>) I'll grab the Xiao ESP32. And more Xiao modules have been added; it would be fun to try a bit of machine learning on a microcontroller module.</p>
 <p>Here's the concept sketch of my Fab Academy final project, a tiny and simple educational robot arm made only of motors and PCBs:</p>
 <p><img alt="baks sketch 1" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/baks_sketch1.jpg" style="width:100%" /></p>
-<p>Baksi (I added the "i" at the end because my son always calls it Baksi) is the noun version of the Icelandic verb baksa, which means to 'busy oneself' or to 'be industrious', usually in the context of toddlers playing energetically outside, digging and dragging logs about and throwing rocks. <a href="https://vimeo.com/806145840#t=9m5s">Here's a video</a> where I describe the final project to Neil Gershenfeld during random review.</p>
+<p>Baksi (I added the "i" at the end because my son always calls it Baksi) is the noun version of the Icelandic verb baksa, which means to 'busy oneself' or to 'be industrious', usually in the context of toddlers playing energetically outside, digging and dragging logs about and throwing rocks. <a href="https://vimeo.com/806145840#t=9m5s">Here's a video</a> where I describe the final project to Prof. Neil Gershenfeld.</p>
 <h4 id="a-bit-of-history">A bit of history</h4>
 <p>I backed the original <a href="https://www.kickstarter.com/projects/ufactory/uarm-put-a-miniature-industrial-robot-arm-on-your">uArm on Kickstarter</a> and enjoyed using it until I accidentally connected the power supply directly to the Arduino instead to the uArm Shield. The plan was to have it <a href="https://hackaday.io/project/1172-uarm-vending-machine">fry doughnuts and frost them</a> but the arm ended up getting fried instead. The software part also intimidated me.</p>
 <p>In one of the courses in my Mechanical Engineering degree, the task was to pick up a wine glass and give the professor a sip. The rationale behind it was to think about solutions for people with Parkinson's disease. <a href="https://gitlab.fabcloud.org/academany/fabacademy/2023/labs/isafjordur/students/svavar-konradsson/-/raw/main/docs/images/building_skenkir.jfif">My group</a> put a lot of work into making a <a href="https://gitlab.fabcloud.org/academany/fabacademy/2023/labs/isafjordur/students/svavar-konradsson/-/raw/main/docs/images/skenkir.jfif">robot arm</a> with a soft 3D printed hand that I found on Thingiverse. We converted an old theatre light (if you find one, they're a treasure trove, this one had 13 stepper motors). I designed and 3D printed all the custom components and <a href="https://www.youtube.com/embed/fERCV8JCrM8">the arm worked</a>.</p>
@@ -1222,6 +1236,7 @@
 <h4 id="i-present-baksi-the-educational-robot">I present Baksi the educational robot!</h4>
 <p><img alt="Baksi" src="images/baksi.jpg" style="width:100%" /></p>
 <p>I ended up changing to a SCARA design, since it doesn't stress the motors as much. I also 3D printed a part to put underneath each PCB to stiffen it and hide a bunch of wires. Here's my fun 1 minute final project video, showcasing Baksi the robot:</p>
+<h4 id="featured-video">Featured video</h4>
 <video controls width=100%>
         <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.mp4" type="video/mp4">
     </video>
