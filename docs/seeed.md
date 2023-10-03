@@ -10,7 +10,7 @@ I took part in the [Fab Academy](https://fabacademy.org/) in 2023 and I have to 
 
 ![Electronics design journey](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/pcb_design_journey.jpg){: style="width:100%"}*The evolution of my electronics design skills over the course of the Fab Academy. The course puts a heavy emphasis on digital electronics, because that's what makes things come alive!*
 
-You'll notice Xiao modules being heavily used throughout my electronics work. They are incredibly handy, since I can put pin headers on them and try things out on a breadboard, and then embed them in my own custom circuits. They have a built-in USB-C connector (it's not easy to mill the pads for those connectors) and an RGB LED which I've used to confirm that my PWM motor control code is working. If I want good analog peripherals to connect to sensors, I'll use the Xiao SAMD21, if I want raw processing power, I'll use the Xiao RP2040 and if I want WiFi networking I'll grab the Xiao ESP32. And more Xiaos have been added; it would be fun to try a bit of machine learning on a microcontroller module.
+You'll notice Xiao modules being heavily used throughout my electronics work. They are incredibly handy, since I can put pin headers on them and try things out on a breadboard, and then embed them in my own custom circuits. They have a built-in USB-C connector (it's not easy to mill the pads for those connectors) and an RGB LED which I've used to confirm that my PWM motor control code is working. If I want good analog peripherals to connect to sensors (like in my [IR sensor](https://svavarkonn.github.io/MkDocs/seeed.html#ir-sensor-board) and the Baksi sensing board), I'll use the Xiao SAMD21, if I want raw processing power, I'll use the Xiao RP2040 and if I want WiFi networking I'll grab the Xiao ESP32. And more Xiaos have been added; it would be fun to try a bit of machine learning on a microcontroller module.
 
 My fun 1 minute final project video, showcasing the educational robot arm that I made:
 
@@ -111,19 +111,19 @@ y = int(packet.decode('utf'))
 Then, to get a very rudimentary graphical representation going, I use an if statement and display one `-` if the value is between 0 and 100, display `--` if the value is between 100 and 200 and so on, up to 1000 (`----------`).
 
 <video controls width=100%>
-      <source src="images/week14/light_bars.mp4" type="video/mp4">
+      <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week14/light_bars.mp4" type="video/mp4">
 </video>*As simple as it gets. This barely counts as a graphical user interface.*
 
 I also tried to make a GUI using Tkinter. I found a useful code snippet in example 1 in [this tutorial](https://pythonlobby.com/frames-in-tkinter-gui-programming-python-tkinter-tutorial/), which creates a small GUI window and displays a title and a red and green rectangle with empty space between them. It's static, but by using my y variable (the number that is streaming into the serial port) instead of hardcoded numbers, I can make the bar move.
 
-![Tkinter example](images/week14/tkinter_example.png){: style="width:100%"}*The static GUI example.*
+![Tkinter example](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week14/tkinter_example.png){: style="width:100%"}*The static GUI example.*
 
 I could get the Tkinter interface to run separately and I could also get a stream of data from the IR sensor separately, but I had trouble combining them. Apparently, [the reason](https://robotic-controls.com/learn/python-guis/tkinter-serial) is that I have two infinite while loops and the one that comes first in the code blocks the other. While the code waits for input from the serial port, nothing else can happen. And while the interface is running, nothing else can happen. I couldn't figure this out using the examples that I found online.
 
 The following day I gave up and asked ChatGPT to change the code to make the two loops run concurrently. That resulted in code that ran, but I needed to make some changes to it. Only the grey bar was changing size between 0 and 1000 pixels, so I put 1000-y as the width of the black bar. That worked nicely. The interface was also sluggish, but I fixed that by changing `root.after(100, readFromSerial)` to `root.after(10, readFromSerial)`. Then there is a much shorter delay for updating the interface. 
 
 <video controls width=100%>
-      <source src="images/week14/ir_sensor_gui.mp4" type="video/mp4">
+      <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week14/ir_sensor_gui.mp4" type="video/mp4">
 </video>*We have a GUI that runs smoothly.*
 
 ### Design files
@@ -252,7 +252,7 @@ A few days after I designed the shape, I decided to change the orientation of th
 I heavily modified Yuichi's board, changing the shape and adding header pins, so that I could use all the Xiao RP2040's pins. I can now connect the brushless motor to the two H-bridges (it needs one and a half H-bridge) and I can connect the encoder to 3.3 V, ground and a digital pin on the Xiao.
 
 
-![Autorouter](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/autorouter.gif){: style="width:100%"}*Trying the Autorouter in KiCAD. I ended up routing everything manually.*
+![Autorouter](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/autorouter.gif){: style="width:100%"}*Trying the Autorouter in Fusion360. I ended up switching to KiCAD and routing everything manually.*
 
 ![Robot joint v1 PCB](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/robot_joint_v1_pcb.jpg){: style="width:100%"}*My robot joint v1 PCB.*
 
@@ -422,19 +422,20 @@ After soldering, I successfully put the bootloader on the SAMD21 chip and then p
 
 [Download baks_joint2_holes_interior.png](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks_joint2_holes_interior.png){ .md-button }
 
+
 ## Sensing board
 
-I also made a sensing board for Baksi. It contains an endstop button for the Z-axis as well as a capacitive step-response proximity sensor, so that it can sense when a human gets too close, and stop moving.
+I also made a sensing board for Baksi. It contains an endstop button for the Z-axis as well as a capacitive step-response proximity sensor, so that it can sense when a human gets too close, and stop moving. It has a Xiao SAMD21.
 
-![Sensing board schematic](images/sensing_board_schematic.jpg){:style="width:100%"}
+![Sensing board schematic](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/sensing_board_schematic.jpg){:style="width:100%"}
 
-![Sensing board PCB](images/sensing_board_pcb.jpg){:style="width:100%"}
+![Sensing board PCB](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/sensing_board_pcb.jpg){:style="width:100%"}
 
 I had a little trouble finding the right pin names for the Seeeduino Xiao SAMD21. In the first place, when I first connected it, it was set up as a Seeeduino Femto. I couldn't find much info on that online. I tried uploading an Arduino sketch to it as a Seeduino Xiao SAMD21, but it got bricked and didn't show up on my computer anymore. Not in the Arduino IDE and not in Device Manager either. 
 
-After a bit of Googling I found the [solution](https://naidoff.medium.com/how-to-unbrick-seeduino-xiao-board-without-external-programmer-if-it-was-bricked-while-flashing-fbed494a5034) to this problem. I shorted the connection between the RESET pads on one side of the Xiao's USB connector and it immediately appeared on my computer as a UF2 drive. I then tried uploading the same Arduino sketch to it as a Xiao Femto, whatever that is, and it worked. Fine.
+After a bit of Googling I found the [solution](https://naidoff.medium.com/how-to-unbrick-seeduino-xiao-board-without-external-programmer-if-it-was-bricked-while-flashing-fbed494a5034) to this problem. I shorted the connection between the RESET pads on one side of the Xiao's USB connector and it immediately appeared on my computer as a UF2 drive. I then tried uploading the same Arduino sketch to it as a Xiao Femto, and it worked.
 
-But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but they didn't work. I also tried my Blink all pins sketch, where I make every pin from 0 to 40 blink once and write its number to the serial monitor at the same time. But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. 
+But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but they didn't work. I also tried my Blink all pins sketch, where I make every pin from 0 to 40 blink once and write its number to the serial monitor at the same time. But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. I connected every pin to an LED using my [LED debugging board](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/week08.html#pcb-milling) and was able to get the pinout of the Xiao Femto.
 
 ### Final project presentation
 
