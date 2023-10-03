@@ -166,10 +166,14 @@ The following day I gave up and asked ChatGPT to change the code to make the two
 
 My next major step was a machine control board for the machine building group project. We made a tea-steeping machine.
 
+<video controls width=100%>
+        <source src="https://fabacademy.org/2023/labs/akureyri/files/TeaManator_-6mb.mp4" type="video/mp4">
+    </video>*The build process and function of the TeaManator tea steeping machine.*
+
 The clean aesthetics of the machine are thanks to [Hafey](https://fabacademy.org/2023/labs/isafjordur/students/hafey-hallgrimsdottir/), who designed and made the structure on the Shopbot and the laser cutter. She also made the logo on the vinyl cutter, which means that we used all the machines in the Fab Lab!
 
 
-![The Icelandic Machine Week team](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week10/team.jpg){: style="width:100%"}*The Icelandic Machine Week team: Svavar, Andri and Hafey.*
+![The Icelandic Machine Week team](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week10/team.jpg){: style="width:100%"}*The Icelandic Machine Week team: [Svavar](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/index.html), [Andri](https://fabacademy.org/2023/labs/akureyri/students/andri-semundsson/index.html) and [Hafey](https://fabacademy.org/2023/labs/isafjordur/students/hafey-hallgrimsdottir/).*
 
 In the Fab Academy, we talk about spiral development. The trick to developing a working product is to make a very rough version the whole thing (instead of perfecting a small part of it) and then doing another spiral to fix bugs and add features, and so on as long as you have time.
 
@@ -434,7 +438,7 @@ I swapped out the Xiao SAMD21 for the bare SAMD21 microcontroller. I made this d
 
 My first attempt at milling the PCB failed, and I broke the smallest end mill (the 0.01" one). I only have one left now. Looking back, I made the fundamental mistake of not making a small test of the most challenging aspect of the process. Then I tried a V-bit:
 
-![Victory!](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/victory.jpg){: style="width:100%"}*The moment I realized that I could finish my Fab Academy final project.*
+![Victory!](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/victory.jpg){: style="width:100%"}*The moment I realized that I could finish my Fab Academy final project. My instructor Þórarinn is on the right.*
 
 I went to the video conferencing screen in the lab with my hands up in victory, and they guys celebrated with me.
 
@@ -459,7 +463,7 @@ After soldering, I successfully put the bootloader on the SAMD21 chip and then p
 
 ![Sensing board](images/sensing_assembly.jpg){:style="width:100%"}
 
-I also made a sensing board for Baksi. It contains an endstop button for the Z-axis as well as a capacitive step-response proximity sensor, so that it can sense when a human gets too close, and stop moving. It has a Xiao SAMD21.
+I also made a sensing board for Baksi. It contains an endstop button for the Z-axis as well as a capacitive step-response proximity sensor, so that it can sense when a human gets too close, and stop moving. The big copper area on the board is the proximity sensor. The board has a Xiao SAMD21 module, which has nice analog-to-digital converters.
 
 ![Sensing board schematic](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/sensing_board_schematic.jpg){:style="width:100%"}
 
@@ -478,6 +482,8 @@ But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but
 But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. I connected every pin to an LED using my [LED debugging board](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/week08.html#pcb-milling) and was able to get the pinout of the Xiao Femto.
 
 ![Xiao Femto pinout](images/xiao_femto_pinout.jpg){:style="width:100%"}
+
+The sensing board is integrated into Baksi but it doesn't turn on. I seem to have misunderstood how the power works on the Xiao module. I thought that I could power it through the 5V pin, but that seems to only offer 5V out. I probably need to change the connections and power the Xiao through the USB connector.
 
 #### Final project presentation
 
@@ -502,6 +508,8 @@ After the Fab Academy, I received a grant from the Icelandic government to hire 
 The software was written by Guðjón Bergmann, who is studying Aerospace Engineering at TU Delft. We've made a robot together [before](https://www.youtube.com/watch?v=z3g7qeER0sY).
 
 ![Guðjón Bergmann](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/gudjon.jpg){: style="width:100%"}*Guðjón Bergmann.*
+
+#### Next steps
 
 I look forward to continuing the project with the help of Seeed Studio. I'm excited to get professionally manufactured (and perhaps also assembled) boards. It may also be useful to order a few precision 3D printed parts and CNC milled aluminum brackets for the Z-axis motors. I need to do a fair bit of customizing to make an improved, clean-looking Z-axis. Coming soon!
 

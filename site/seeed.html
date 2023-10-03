@@ -710,6 +710,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1125,6 +1132,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1259,8 +1273,12 @@
 <p><a class="md-button" href="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week14/ir_sensor5.py">Download Python GUI code</a></p>
 <h2 id="the-tea-machine">The tea machine</h2>
 <p>My next major step was a machine control board for the machine building group project. We made a tea-steeping machine.</p>
+<video controls width=100%>
+        <source src="https://fabacademy.org/2023/labs/akureyri/files/TeaManator_-6mb.mp4" type="video/mp4">
+    </video>
+<p><em>The build process and function of the TeaManator tea steeping machine.</em></p>
 <p>The clean aesthetics of the machine are thanks to <a href="https://fabacademy.org/2023/labs/isafjordur/students/hafey-hallgrimsdottir/">Hafey</a>, who designed and made the structure on the Shopbot and the laser cutter. She also made the logo on the vinyl cutter, which means that we used all the machines in the Fab Lab!</p>
-<p><img alt="The Icelandic Machine Week team" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week10/team.jpg" style="width:100%" /><em>The Icelandic Machine Week team: Svavar, Andri and Hafey.</em></p>
+<p><img alt="The Icelandic Machine Week team" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week10/team.jpg" style="width:100%" /><em>The Icelandic Machine Week team: <a href="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/index.html">Svavar</a>, <a href="https://fabacademy.org/2023/labs/akureyri/students/andri-semundsson/index.html">Andri</a> and <a href="https://fabacademy.org/2023/labs/isafjordur/students/hafey-hallgrimsdottir/">Hafey</a>.</em></p>
 <p>In the Fab Academy, we talk about spiral development. The trick to developing a working product is to make a very rough version the whole thing (instead of perfecting a small part of it) and then doing another spiral to fix bugs and add features, and so on as long as you have time.</p>
 <h4 id="machine-controller-spiral-1">Machine controller spiral 1</h4>
 <p><img alt="L298N module on a breadboard" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week10/breadboard_l298n.jpg" style="width:100%" /><em>Machine control spiral 1: An L298N stepper driver module on a breadboard with a SparkFun RedBoard, which is essentially the same thing as an Arduino Uno.</em></p>
@@ -1437,7 +1455,7 @@
 <p><img alt="Baks robot joint PCB layout" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/baks_pcb.jpg" style="width:100%" /><em>The baksi robot joint PCB layout.</em></p>
 <h4 id="pcb-production_1">PCB production</h4>
 <p>My first attempt at milling the PCB failed, and I broke the smallest end mill (the 0.01" one). I only have one left now. Looking back, I made the fundamental mistake of not making a small test of the most challenging aspect of the process. Then I tried a V-bit:</p>
-<p><img alt="Victory!" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/victory.jpg" style="width:100%" /><em>The moment I realized that I could finish my Fab Academy final project.</em></p>
+<p><img alt="Victory!" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/victory.jpg" style="width:100%" /><em>The moment I realized that I could finish my Fab Academy final project. My instructor Þórarinn is on the right.</em></p>
 <p>I went to the video conferencing screen in the lab with my hands up in victory, and they guys celebrated with me.</p>
 <p><img alt="Beautiful traces" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/beautiful_traces.jpg" style="width:100%" /><em>Look at those beautiful traces.</em></p>
 <p>When soldering the teeny tiny DRV8313 motor driver onto my beautiful board, I found that its legs are very thin and flexible, and so when you've fastened the driver to the big ground plane with a heat gun, you can bend the legs into place, as long as they're close to their intended copper pad.</p>
@@ -1449,7 +1467,7 @@
 <p><a class="md-button" href="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks_joint2_holes_interior.png">Download baks_joint2_holes_interior.png</a></p>
 <h4 id="sensing-board">Sensing board</h4>
 <p><img alt="Sensing board" src="images/sensing_assembly.jpg" style="width:100%" /></p>
-<p>I also made a sensing board for Baksi. It contains an endstop button for the Z-axis as well as a capacitive step-response proximity sensor, so that it can sense when a human gets too close, and stop moving. It has a Xiao SAMD21.</p>
+<p>I also made a sensing board for Baksi. It contains an endstop button for the Z-axis as well as a capacitive step-response proximity sensor, so that it can sense when a human gets too close, and stop moving. The big copper area on the board is the proximity sensor. The board has a Xiao SAMD21 module, which has nice analog-to-digital converters.</p>
 <p><img alt="Sensing board schematic" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/sensing_board_schematic.jpg" style="width:100%" /></p>
 <p><img alt="Sensing board PCB" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/sensing_board_pcb.jpg" style="width:100%" /></p>
 <p><img alt="Sensing BOM" src="images/sensing_bom.jpg" style="width:100%" /></p>
@@ -1459,6 +1477,7 @@
 <p><img alt="Xiao Femto pinout discovery" src="images/xiao_femto_pinout_discovery.jpg" style="width:100%" /><em>I connected each pin to an LED to discover the pin numbers.</em></p>
 <p>But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. I connected every pin to an LED using my <a href="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/week08.html#pcb-milling">LED debugging board</a> and was able to get the pinout of the Xiao Femto.</p>
 <p><img alt="Xiao Femto pinout" src="images/xiao_femto_pinout.jpg" style="width:100%" /></p>
+<p>The sensing board is integrated into Baksi but it doesn't turn on. I seem to have misunderstood how the power works on the Xiao module. I thought that I could power it through the 5V pin, but that seems to only offer 5V out. I probably need to change the connections and power the Xiao through the USB connector.</p>
 <h4 id="final-project-presentation">Final project presentation</h4>
 <p><img alt="Presentation Slide" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.png" style="width:100%" /><em>Presentation slide.</em></p>
 <video controls width=100%>
@@ -1473,6 +1492,7 @@
 <p><img alt="Baksi GUI" src="images/baksi_gui.png" style="width:100%" /><em>Version 1 of the Baksi GUI.</em></p>
 <p>The software was written by Guðjón Bergmann, who is studying Aerospace Engineering at TU Delft. We've made a robot together <a href="https://www.youtube.com/watch?v=z3g7qeER0sY">before</a>.</p>
 <p><img alt="Guðjón Bergmann" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/gudjon.jpg" style="width:100%" /><em>Guðjón Bergmann.</em></p>
+<h4 id="next-steps">Next steps</h4>
 <p>I look forward to continuing the project with the help of Seeed Studio. I'm excited to get professionally manufactured (and perhaps also assembled) boards. It may also be useful to order a few precision 3D printed parts and CNC milled aluminum brackets for the Z-axis motors. I need to do a fair bit of customizing to make an improved, clean-looking Z-axis. Coming soon!</p>
 <p>(I have higher resolution images and videos if you want.)</p>
 
