@@ -10,7 +10,7 @@ I took part in the [Fab Academy](https://fabacademy.org/) in 2023 and I have to 
 
 ![Electronics design journey](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/pcb_design_journey.jpg){: style="width:100%"}*The evolution of my electronics design skills over the course of the Fab Academy. The course puts a heavy emphasis on digital electronics, because that's what makes things come alive!*
 
-You'll notice Xiao modules being heavily used throughout my electronics work. They are recommended by the Fab Academy, which has traditionally only used bare microcontrollers. The Xiao modules are incredibly handy, since I can put pin headers on them and try things out on a breadboard, and then embed them in my own custom circuits. They have a built-in USB-C connector (it's not easy to mill the pads for those connectors) and an RGB LED which I've used to confirm that my PWM motor control code is working (see [here](https://svavarkonn.github.io/MkDocs/seeed.html#led-pwm-test)). If I want good analog peripherals to connect to sensors (like in my [IR sensor](https://svavarkonn.github.io/MkDocs/seeed.html#ir-sensor-board) and my [Baksi sensing board](https://svavarkonn.github.io/MkDocs/seeed.html#sensing-board)), I'll use the Xiao SAMD21, if I want raw processing power, I'll use the Xiao RP2040 and if I want WiFi networking I'll grab the Xiao ESP32. And more Xiaos have been added; it would be fun to try a bit of machine learning on a microcontroller module.
+You'll notice Xiao modules being heavily used throughout my electronics work. They are recommended by the Fab Academy, which has traditionally only used bare microcontrollers. The Xiao modules are incredibly handy, since I can put pin headers on them and try things out on a breadboard, and then embed them in my own custom circuits. They have a built-in USB-C connector (it's not easy to mill the pads for those connectors) and an RGB LED which I've used to confirm that my PWM motor control code is working (see [here](https://svavarkonn.github.io/MkDocs/seeed.html#led-pwm-test)). If I want good analog peripherals to connect to sensors (like in my [IR sensor](https://svavarkonn.github.io/MkDocs/seeed.html#ir-sensor-board) and my [Baksi sensing board](https://svavarkonn.github.io/MkDocs/seeed.html#sensing-board)), I'll use the Xiao SAMD21, if I want raw processing power, I'll use the Xiao RP2040 and if I want WiFi networking (like in the [FMCU button](https://gitlab.fabcloud.org/pub/project/bootcamp-2023/fmcu/-/tree/main/fmcu-zoom)) I'll grab the Xiao ESP32. And more Xiao modules have been added; it would be fun to try a bit of machine learning on a microcontroller module.
 
 Here's the concept sketch of my Fab Academy final project, a tiny and simple educational robot arm made only of motors and PCBs:
 
@@ -65,6 +65,16 @@ Here I've programmed the button to turn on the LED:
 <video controls width=100%>
   <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week08/led-button.mp4" type="video/mp4">
 </video>
+
+[Here](https://vimeo.com/806145840#t=5m18s) I'm describing to Prof. Neil Gershenfeld how much I loved making a circuit on the vinyl cutter and how exciting it was to see the LED blink for the first time!
+
+#### Design files
+
+[Download blink board KiCAD project](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week06/test.zip){ .md-button }
+
+[Download blink.py](files/blink.py){ .md-button }
+
+[Download button.ino](files/button.ino){ .md-button }
 
 ## IR sensor board
 
