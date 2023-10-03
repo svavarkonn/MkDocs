@@ -16,7 +16,7 @@ Here's the concept sketch of my Fab Academy final project, a tiny and simple edu
 
 ![baks sketch 1](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/baks_sketch1.jpg){: style="width:100%"}
 
-Baksi (I added the "i" at the end because my son always calls it Baksi) is the noun version of the Icelandic verb baksa, which means to 'busy oneself' or to 'be industrious', usually in the context of toddlers playing energetically outside, digging and dragging logs about and throwing rocks. [Here's a video](https://vimeo.com/806145840#t=9m5s) where I describe the final project to Prof. Neil Gershenfeld.
+Baksi (I added the "i" at the end because my son always calls it Baksi) is the noun version of the Icelandic verb baksa, which means to 'busy oneself' or to 'be industrious', usually in the context of toddlers playing energetically outside, digging and dragging logs about and throwing rocks. [Here's a video](https://vimeo.com/806145840#t=9m5s) where I describe the final project to Prof. Neil Gershenfeld. I had no idea how to make a robot arm from scratch when I made this sketch in January, but I learned everything I needed through the weekly projects in the Fab Academy.
 
 #### A bit of history
 I backed the original [uArm on Kickstarter](https://www.kickstarter.com/projects/ufactory/uarm-put-a-miniature-industrial-robot-arm-on-your) and enjoyed using it until I accidentally connected the power supply directly to the Arduino instead to the uArm Shield. The plan was to have it [fry doughnuts and frost them](https://hackaday.io/project/1172-uarm-vending-machine) but the arm ended up getting fried instead. The software part also intimidated me.
@@ -46,7 +46,7 @@ I ended up changing to a SCARA design, since it doesn't stress the motors as muc
 
 <video controls width=100%>
         <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.mp4" type="video/mp4">
-    </video>*I'd love to show Baksi the robot arm at Maker Faire Shenzen and discuss how to adapt the design for manufacturing.*
+    </video>*I'd love to show Baksi the robot arm at Maker Faire Shenzhen and discuss how to adapt the design for manufacturing.*
 
 I'm planning to have Seeed Studio fabricate the boards for the next version of the Baksi robot arm. That version will be made of motors and PCBs and nothing else! A professionally produced FR4 PCB will be much stiffer than the FR1 boards that I milled, and when I order them from Seeed Studio I can use multiple layers to route all the wires that I need. I've checked, and the main parts (MCU and motor driver) are available in the Seeed Studio part catalogue. I also think Grove connectors for the motors and encoders would be really nice. If there's interest, it would be exciting to also try to sell the robot as a kit in the Seeed Studio store. I really want to take this robot all the way to market, so that it can be used to teach electronics, robotics and programming in a fun and engaging way. I even got a friend of mine to make a [GUI for Baksi](https://svavarkonn.github.io/MkDocs/seeed.html#baksi-software). Exciting times ahead!
 
@@ -533,6 +533,6 @@ I look forward to continuing the project with the help of Seeed Studio. I'm exci
 
 (I have higher resolution images and videos if you want.)
 
-I hope to see you in Shenzen!
+I hope to see you in Shenzhen!
 
 ![Svavar Konráðsson](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/images/svavar.jpg){: style="width:100%"}*Svavar Konráðsson, Ísafjörður, Iceland*
