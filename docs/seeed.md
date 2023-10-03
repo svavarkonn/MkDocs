@@ -164,7 +164,7 @@ The following day I gave up and asked ChatGPT to change the code to make the two
 
 ## The tea machine
 
-My next major step was a machine control board for the machine building group project. We made a tea-steeping machine.
+My next major step was a machine control board for the machine building group project. We made a tea-steeping machine based on the [Beehive linear axis](https://gitlab.cba.mit.edu/quentinbolsee/beehive-axes) by [Quentin Bolsée](http://fabacademy.org/2020/labs/ulb/students/quentin-bolsee/).
 
 <video controls width=100%>
         <source src="https://fabacademy.org/2023/labs/akureyri/files/TeaManator_-6mb.mp4" type="video/mp4">
@@ -480,6 +480,10 @@ But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but
 ![Xiao Femto pinout discovery](images/xiao_femto_pinout_discovery.jpg){:style="width:100%"}*I connected each pin to an LED to discover the pin numbers.*
 
 But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. I connected every pin to an LED using my [LED debugging board](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/week08.html#pcb-milling) and was able to get the pinout of the Xiao Femto.
+
+<video controls width=100%>
+        <source src="images/pin6.mp4" type="video/mp4">
+    </video>*I've discovered pin number 6!*
 
 ![Xiao Femto pinout](images/xiao_femto_pinout.jpg){:style="width:100%"}
 
