@@ -1117,15 +1117,15 @@
 </code></pre></div>
 <p>Then, to get a very rudimentary graphical representation going, I use an if statement and display one <code>-</code> if the value is between 0 and 100, display <code>--</code> if the value is between 100 and 200 and so on, up to 1000 (<code>----------</code>).</p>
 <video controls width=100%>
-      <source src="images/week14/light_bars.mp4" type="video/mp4">
+      <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week14/light_bars.mp4" type="video/mp4">
 </video>
 <p><em>As simple as it gets. This barely counts as a graphical user interface.</em></p>
 <p>I also tried to make a GUI using Tkinter. I found a useful code snippet in example 1 in <a href="https://pythonlobby.com/frames-in-tkinter-gui-programming-python-tkinter-tutorial/">this tutorial</a>, which creates a small GUI window and displays a title and a red and green rectangle with empty space between them. It's static, but by using my y variable (the number that is streaming into the serial port) instead of hardcoded numbers, I can make the bar move.</p>
-<p><img alt="Tkinter example" src="images/week14/tkinter_example.png" style="width:100%" /><em>The static GUI example.</em></p>
+<p><img alt="Tkinter example" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week14/tkinter_example.png" style="width:100%" /><em>The static GUI example.</em></p>
 <p>I could get the Tkinter interface to run separately and I could also get a stream of data from the IR sensor separately, but I had trouble combining them. Apparently, <a href="https://robotic-controls.com/learn/python-guis/tkinter-serial">the reason</a> is that I have two infinite while loops and the one that comes first in the code blocks the other. While the code waits for input from the serial port, nothing else can happen. And while the interface is running, nothing else can happen. I couldn't figure this out using the examples that I found online.</p>
 <p>The following day I gave up and asked ChatGPT to change the code to make the two loops run concurrently. That resulted in code that ran, but I needed to make some changes to it. Only the grey bar was changing size between 0 and 1000 pixels, so I put 1000-y as the width of the black bar. That worked nicely. The interface was also sluggish, but I fixed that by changing <code>root.after(100, readFromSerial)</code> to <code>root.after(10, readFromSerial)</code>. Then there is a much shorter delay for updating the interface. </p>
 <video controls width=100%>
-      <source src="images/week14/ir_sensor_gui.mp4" type="video/mp4">
+      <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week14/ir_sensor_gui.mp4" type="video/mp4">
 </video>
 <p><em>We have a GUI that runs smoothly.</em></p>
 <h3 id="design-files_1">Design files</h3>
@@ -1196,7 +1196,7 @@
 <p><a class="md-button" href="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week09/stepper_festing.f3z">Download robot arm spiral 1 Fusion 360 model</a></p>
 <h3 id="my-pcb-design">My PCB design</h3>
 <p>I heavily modified Yuichi's board, changing the shape and adding header pins, so that I could use all the Xiao RP2040's pins. I can now connect the brushless motor to the two H-bridges (it needs one and a half H-bridge) and I can connect the encoder to 3.3 V, ground and a digital pin on the Xiao.</p>
-<p><img alt="Autorouter" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/autorouter.gif" style="width:100%" /><em>Trying the Autorouter in KiCAD. I ended up routing everything manually.</em></p>
+<p><img alt="Autorouter" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/autorouter.gif" style="width:100%" /><em>Trying the Autorouter in Fusion360. I ended up switching to KiCAD and routing everything manually.</em></p>
 <p><img alt="Robot joint v1 PCB" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/robot_joint_v1_pcb.jpg" style="width:100%" /><em>My robot joint v1 PCB.</em></p>
 <p>I also added one header pin to the current sense resistor, hoping that I can read the current going into the motor. That would be very useful, because it's a way to prevent the H-bridges from overheating (I burned a motor driver on a commercial robot arm once and I want to make it impossible on my arm) and I can also use the measured current as a way to measure the force on the joint. Current sensing is not available on any hobby robot that I know of, so if this works, then it will be a great feature! </p>
 <p>I also added a 7-11V power input for the brushless motor. Yuichi's stepper board uses the 5V USB pin to power the stepper, but my brushless motor needs a higher voltage. I will just be using a lab power supply for now. I will figure out the arm's power supply later. Does it make sense to add a boost converter? I don't know, converting 230V AC into 5V and then converting 5V into 11V sounds a bit messy to me.</p>
