@@ -6,11 +6,11 @@
 
 [![Fab Academy](https://fablab.is/wp-content/uploads/2017/11/fab-academy2.jpg){: style="width:100%"}](https://fabacademy.org/)
 
-I took part in the [Fab Academy](https://fabacademy.org/) in 2023 and I have to say, the experience changed me for the better. My instructor was [Þórarinn Bjartur Breiðjfjörð Gunnarsson](https://fabacademy.org/archives/2015/eu/students/gunnarsson.thorarinn_b.b/index.html), director of Fab Lab Ísafjörður.
+I took part in the [Fab Academy](https://fabacademy.org/) in 2023 and I have to say, the experience changed me for the better. I no longer feel intimidated by any technology, and my project management skills have improved. My instructor was [Þórarinn Bjartur Breiðjfjörð Gunnarsson](https://fabacademy.org/archives/2015/eu/students/gunnarsson.thorarinn_b.b/index.html), director of Fab Lab Ísafjörður.
 
 ![Electronics design journey](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/pcb_design_journey.jpg){: style="width:100%"}*The evolution of my electronics design skills over the course of the Fab Academy. The course puts a heavy emphasis on digital electronics, because that's what makes things come alive!*
 
-You'll notice Xiao modules being heavily used throughout my electronics work. They are incredibly handy, since I can put pin headers on them and try things out on a breadboard, and then embed them in my own custom circuits. They have a built-in USB-C connector (it's not easy to mill the pads for those connectors) and an RGB LED which I've used to confirm that my PWM motor control code is working. If I want good analog peripherals to connect to sensors (like in my [IR sensor](https://svavarkonn.github.io/MkDocs/seeed.html#ir-sensor-board) and the Baksi sensing board), I'll use the Xiao SAMD21, if I want raw processing power, I'll use the Xiao RP2040 and if I want WiFi networking I'll grab the Xiao ESP32. And more Xiaos have been added; it would be fun to try a bit of machine learning on a microcontroller module.
+You'll notice Xiao modules being heavily used throughout my electronics work. They are incredibly handy, since I can put pin headers on them and try things out on a breadboard, and then embed them in my own custom circuits. They have a built-in USB-C connector (it's not easy to mill the pads for those connectors) and an RGB LED which I've used to confirm that my PWM motor control code is working (see [here](https://svavarkonn.github.io/MkDocs/seeed.html#led-pwm-test)). If I want good analog peripherals to connect to sensors (like in my [IR sensor](https://svavarkonn.github.io/MkDocs/seeed.html#ir-sensor-board) and my [Baksi sensing board](https://svavarkonn.github.io/MkDocs/seeed.html#sensing-board)), I'll use the Xiao SAMD21, if I want raw processing power, I'll use the Xiao RP2040 and if I want WiFi networking I'll grab the Xiao ESP32. And more Xiaos have been added; it would be fun to try a bit of machine learning on a microcontroller module.
 
 My fun 1 minute final project video, showcasing the educational robot arm that I made:
 
@@ -374,7 +374,7 @@ I also noticed a lot of compliance in the structure. It seems to stem mostly fro
 </video>
 
 
-# Final project spiral 2
+## Final project spiral 2
 
 ## Basic shape study
 
@@ -446,3 +446,15 @@ But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but
     </video>*1 minute presentation video.*
 
 [![Live presentation](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/fab_academy_2023_cycle.jpg){: style="width:100%" }](https://vimeo.com/835552516#t=6:17)*Here I am presenting my final project to Professor [Neil Gershenfeld](https://youtu.be/YDjOS0VHEr4) and the instructors and students in the 2023 Fab Academy cycle. [Link to the video.](https://vimeo.com/835552516#t=6:17)*
+
+## Baksi software
+
+After the Fab Academy, I received a grant from the Icelandic government to hire a university student to make a graphical user interface to control Baksi the robot. Here is the resulting software, written in Python:
+
+![Baksi GUI](images/baksi_gui.png){: style="width:100%" }*Version 1 of the Baksi GUI.*
+
+The software was written by Guðjón Bergmann, who is studying Aerospace Engineering at TU Delft. We've made a robot together [before](https://www.youtube.com/watch?v=z3g7qeER0sY).
+
+![Guðjón Bergmann](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/gudjon.jpg){: style="width:100%"}*Guðjón Bergmann.*
+
+I look forward to continuing the project!
