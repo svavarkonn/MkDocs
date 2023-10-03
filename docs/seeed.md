@@ -36,9 +36,11 @@ Since I have a history of frying robot arms, I have a few personal design goals 
 - Cheap
 - Precise enough to paint candles for a local company :)
 
-#### I present Baksi the robot!
+#### I present Baksi the educational robot!
 
-I ended up changing to a SCARA design, since it doesn't stress the motors as much. I also 3D printed a part to put underneath each PCB to stiffen it and hide a bunch of wires. Here's my fun 1 minute final project video, showcasing the educational robot arm that I ended up making:
+![Baksi](images/baksi.jpg){: style="width:100%"}
+
+I ended up changing to a SCARA design, since it doesn't stress the motors as much. I also 3D printed a part to put underneath each PCB to stiffen it and hide a bunch of wires. Here's my fun 1 minute final project video, showcasing Baksi the robot:
 
 <video controls width=100%>
         <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.mp4" type="video/mp4">
@@ -455,17 +457,27 @@ After soldering, I successfully put the bootloader on the SAMD21 chip and then p
 
 #### Sensing board
 
+![Sensing board](images/sensing_assembly.jpg){:style="width:100%"}
+
 I also made a sensing board for Baksi. It contains an endstop button for the Z-axis as well as a capacitive step-response proximity sensor, so that it can sense when a human gets too close, and stop moving. It has a Xiao SAMD21.
 
 ![Sensing board schematic](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/sensing_board_schematic.jpg){:style="width:100%"}
 
 ![Sensing board PCB](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/sensing_board_pcb.jpg){:style="width:100%"}
 
+![Sensing BOM](images/sensing_bom.jpg){:style="width:100%"}
+
 I had a little trouble finding the right pin names for the Seeeduino Xiao SAMD21. In the first place, when I first connected it, it was set up as a Seeeduino Femto. I couldn't find much info on that online. I tried uploading an Arduino sketch to it as a Seeduino Xiao SAMD21, but it got bricked and didn't show up on my computer anymore. Not in the Arduino IDE and not in Device Manager either. 
 
 After a bit of Googling I found the [solution](https://naidoff.medium.com/how-to-unbrick-seeduino-xiao-board-without-external-programmer-if-it-was-bricked-while-flashing-fbed494a5034) to this problem. I shorted the connection between the RESET pads on one side of the Xiao's USB connector and it immediately appeared on my computer as a UF2 drive. I then tried uploading the same Arduino sketch to it as a Xiao Femto, and it worked.
 
-But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but they didn't work. I also tried my Blink all pins sketch, where I make every pin from 0 to 40 blink once and write its number to the serial monitor at the same time. But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. I connected every pin to an LED using my [LED debugging board](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/week08.html#pcb-milling) and was able to get the pinout of the Xiao Femto.
+But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but they didn't work. I also tried my Blink all pins sketch, where I make every pin from 0 to 40 blink once and write its number to the serial monitor at the same time. 
+
+![Xiao Femto pinout discovery](images/xiao_femto_pinout_discovery.jpg){:style="width:100%"}*I connected each pin to an LED to discover the pin numbers.*
+
+But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. I connected every pin to an LED using my [LED debugging board](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/week08.html#pcb-milling) and was able to get the pinout of the Xiao Femto.
+
+![Xiao Femto pinout](images/xiao_femto_pinout.jpg){:style="width:100%"}
 
 #### Final project presentation
 
@@ -492,3 +504,5 @@ The software was written by Guðjón Bergmann, who is studying Aerospace Enginee
 ![Guðjón Bergmann](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/gudjon.jpg){: style="width:100%"}*Guðjón Bergmann.*
 
 I look forward to continuing the project with the help of Seeed Studio. I'm excited to get professionally manufactured (and perhaps also assembled) boards. It may also be useful to order a few precision 3D printed parts and CNC milled aluminum brackets for the Z-axis motors. I need to do a fair bit of customizing to make an improved, clean-looking Z-axis. Coming soon!
+
+(I have higher resolution images and videos if you want.)

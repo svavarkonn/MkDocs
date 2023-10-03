@@ -392,8 +392,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#i-present-baksi-the-robot" class="md-nav__link">
-    I present Baksi the robot!
+  <a href="#i-present-baksi-the-educational-robot" class="md-nav__link">
+    I present Baksi the educational robot!
   </a>
   
 </li>
@@ -807,8 +807,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#i-present-baksi-the-robot" class="md-nav__link">
-    I present Baksi the robot!
+  <a href="#i-present-baksi-the-educational-robot" class="md-nav__link">
+    I present Baksi the educational robot!
   </a>
   
 </li>
@@ -1179,8 +1179,9 @@
 <li>Cheap</li>
 <li>Precise enough to paint candles for a local company :)</li>
 </ul>
-<h4 id="i-present-baksi-the-robot">I present Baksi the robot!</h4>
-<p>I ended up changing to a SCARA design, since it doesn't stress the motors as much. I also 3D printed a part to put underneath each PCB to stiffen it and hide a bunch of wires. Here's my fun 1 minute final project video, showcasing the educational robot arm that I ended up making:</p>
+<h4 id="i-present-baksi-the-educational-robot">I present Baksi the educational robot!</h4>
+<p><img alt="Baksi" src="images/baksi.jpg" style="width:100%" /></p>
+<p>I ended up changing to a SCARA design, since it doesn't stress the motors as much. I also 3D printed a part to put underneath each PCB to stiffen it and hide a bunch of wires. Here's my fun 1 minute final project video, showcasing Baksi the robot:</p>
 <video controls width=100%>
         <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.mp4" type="video/mp4">
     </video>
@@ -1447,12 +1448,17 @@
 <p><a class="md-button" href="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks_joint2_traces_exterior.png">Download baks_joint2_traces_exterior.png</a></p>
 <p><a class="md-button" href="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks_joint2_holes_interior.png">Download baks_joint2_holes_interior.png</a></p>
 <h4 id="sensing-board">Sensing board</h4>
+<p><img alt="Sensing board" src="images/sensing_assembly.jpg" style="width:100%" /></p>
 <p>I also made a sensing board for Baksi. It contains an endstop button for the Z-axis as well as a capacitive step-response proximity sensor, so that it can sense when a human gets too close, and stop moving. It has a Xiao SAMD21.</p>
 <p><img alt="Sensing board schematic" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/sensing_board_schematic.jpg" style="width:100%" /></p>
 <p><img alt="Sensing board PCB" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/sensing_board_pcb.jpg" style="width:100%" /></p>
+<p><img alt="Sensing BOM" src="images/sensing_bom.jpg" style="width:100%" /></p>
 <p>I had a little trouble finding the right pin names for the Seeeduino Xiao SAMD21. In the first place, when I first connected it, it was set up as a Seeeduino Femto. I couldn't find much info on that online. I tried uploading an Arduino sketch to it as a Seeduino Xiao SAMD21, but it got bricked and didn't show up on my computer anymore. Not in the Arduino IDE and not in Device Manager either. </p>
 <p>After a bit of Googling I found the <a href="https://naidoff.medium.com/how-to-unbrick-seeduino-xiao-board-without-external-programmer-if-it-was-bricked-while-flashing-fbed494a5034">solution</a> to this problem. I shorted the connection between the RESET pads on one side of the Xiao's USB connector and it immediately appeared on my computer as a UF2 drive. I then tried uploading the same Arduino sketch to it as a Xiao Femto, and it worked.</p>
-<p>But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but they didn't work. I also tried my Blink all pins sketch, where I make every pin from 0 to 40 blink once and write its number to the serial monitor at the same time. But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. I connected every pin to an LED using my <a href="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/week08.html#pcb-milling">LED debugging board</a> and was able to get the pinout of the Xiao Femto.</p>
+<p>But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but they didn't work. I also tried my Blink all pins sketch, where I make every pin from 0 to 40 blink once and write its number to the serial monitor at the same time. </p>
+<p><img alt="Xiao Femto pinout discovery" src="images/xiao_femto_pinout_discovery.jpg" style="width:100%" /><em>I connected each pin to an LED to discover the pin numbers.</em></p>
+<p>But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. I connected every pin to an LED using my <a href="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/week08.html#pcb-milling">LED debugging board</a> and was able to get the pinout of the Xiao Femto.</p>
+<p><img alt="Xiao Femto pinout" src="images/xiao_femto_pinout.jpg" style="width:100%" /></p>
 <h4 id="final-project-presentation">Final project presentation</h4>
 <p><img alt="Presentation Slide" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.png" style="width:100%" /><em>Presentation slide.</em></p>
 <video controls width=100%>
@@ -1468,6 +1474,7 @@
 <p>The software was written by Guðjón Bergmann, who is studying Aerospace Engineering at TU Delft. We've made a robot together <a href="https://www.youtube.com/watch?v=z3g7qeER0sY">before</a>.</p>
 <p><img alt="Guðjón Bergmann" src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/gudjon.jpg" style="width:100%" /><em>Guðjón Bergmann.</em></p>
 <p>I look forward to continuing the project with the help of Seeed Studio. I'm excited to get professionally manufactured (and perhaps also assembled) boards. It may also be useful to order a few precision 3D printed parts and CNC milled aluminum brackets for the Z-axis motors. I need to do a fair bit of customizing to make an improved, clean-looking Z-axis. Coming soon!</p>
+<p>(I have higher resolution images and videos if you want.)</p>
 
 
 
