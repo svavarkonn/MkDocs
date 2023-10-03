@@ -6,19 +6,45 @@
 
 [![Fab Academy](https://fablab.is/wp-content/uploads/2017/11/fab-academy2.jpg){: style="width:100%"}](https://fabacademy.org/)
 
-I took part in the [Fab Academy](https://fabacademy.org/) in 2023 and I have to say, the experience changed me for the better. I no longer feel intimidated by any technology, and my project management skills have improved. My instructor was [Þórarinn Bjartur Breiðjfjörð Gunnarsson](https://fabacademy.org/archives/2015/eu/students/gunnarsson.thorarinn_b.b/index.html), director of Fab Lab Ísafjörður.
+I took part in the [Fab Academy](https://fabacademy.org/) in 2023 and I have to say, the experience changed me for the better. I no longer feel intimidated by any technology, and my project management skills have improved. The Fab Academy is taught remotely by Professor Neil Gershenfeld, director of the MIT Center for Bits and Atoms. Neil is the originator of the Fab Lab movement. My local instructor at our lab was the multi-talented [Þórarinn Bjartur Breiðfjörð Gunnarsson](https://fabacademy.org/archives/2015/eu/students/gunnarsson.thorarinn_b.b/index.html), director of Fab Lab Ísafjörður.
 
 ![Electronics design journey](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/pcb_design_journey.jpg){: style="width:100%"}*The evolution of my electronics design skills over the course of the Fab Academy. The course puts a heavy emphasis on digital electronics, because that's what makes things come alive!*
 
-You'll notice Xiao modules being heavily used throughout my electronics work. They are incredibly handy, since I can put pin headers on them and try things out on a breadboard, and then embed them in my own custom circuits. They have a built-in USB-C connector (it's not easy to mill the pads for those connectors) and an RGB LED which I've used to confirm that my PWM motor control code is working (see [here](https://svavarkonn.github.io/MkDocs/seeed.html#led-pwm-test)). If I want good analog peripherals to connect to sensors (like in my [IR sensor](https://svavarkonn.github.io/MkDocs/seeed.html#ir-sensor-board) and my [Baksi sensing board](https://svavarkonn.github.io/MkDocs/seeed.html#sensing-board)), I'll use the Xiao SAMD21, if I want raw processing power, I'll use the Xiao RP2040 and if I want WiFi networking I'll grab the Xiao ESP32. And more Xiaos have been added; it would be fun to try a bit of machine learning on a microcontroller module.
+You'll notice Xiao modules being heavily used throughout my electronics work. They are recommended by the Fab Academy, which has traditionally only used bare microcontrollers. The Xiao modules are incredibly handy, since I can put pin headers on them and try things out on a breadboard, and then embed them in my own custom circuits. They have a built-in USB-C connector (it's not easy to mill the pads for those connectors) and an RGB LED which I've used to confirm that my PWM motor control code is working (see [here](https://svavarkonn.github.io/MkDocs/seeed.html#led-pwm-test)). If I want good analog peripherals to connect to sensors (like in my [IR sensor](https://svavarkonn.github.io/MkDocs/seeed.html#ir-sensor-board) and my [Baksi sensing board](https://svavarkonn.github.io/MkDocs/seeed.html#sensing-board)), I'll use the Xiao SAMD21, if I want raw processing power, I'll use the Xiao RP2040 and if I want WiFi networking I'll grab the Xiao ESP32. And more Xiaos have been added; it would be fun to try a bit of machine learning on a microcontroller module.
 
-My fun 1 minute final project video, showcasing the educational robot arm that I made:
+Here's the concept sketch of my Fab Academy final project, a tiny and simple educational robot arm made only of motors and PCBs:
+
+![baks sketch 1](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/baks_sketch1.jpg){: style="width:100%"}
+
+Baksi (I added the "i" at the end because my son always calls it Baksi) is the noun version of the Icelandic verb baksa, which means to 'busy oneself' or to 'be industrious', usually in the context of toddlers playing energetically outside, digging and dragging logs about and throwing rocks. [Here's a video](https://vimeo.com/806145840#t=9m5s) where I describe the final project to Neil Gershenfeld during random review.
+
+#### A bit of history
+I backed the original [uArm on Kickstarter](https://www.kickstarter.com/projects/ufactory/uarm-put-a-miniature-industrial-robot-arm-on-your) and enjoyed using it until I accidentally connected the power supply directly to the Arduino instead to the uArm Shield. The plan was to have it [fry doughnuts and frost them](https://hackaday.io/project/1172-uarm-vending-machine) but the arm ended up getting fried instead. The software part also intimidated me.
+
+In one of the courses in my Mechanical Engineering degree, the task was to pick up a wine glass and give the professor a sip. The rationale behind it was to think about solutions for people with Parkinson's disease. [My group](https://gitlab.fabcloud.org/academany/fabacademy/2023/labs/isafjordur/students/svavar-konradsson/-/raw/main/docs/images/building_skenkir.jfif) put a lot of work into making a [robot arm](https://gitlab.fabcloud.org/academany/fabacademy/2023/labs/isafjordur/students/svavar-konradsson/-/raw/main/docs/images/skenkir.jfif) with a soft 3D printed hand that I found on Thingiverse. We converted an old theatre light (if you find one, they're a treasure trove, this one had 13 stepper motors). I designed and 3D printed all the custom components and [the arm worked](https://www.youtube.com/embed/fERCV8JCrM8).
+
+But then I wanted an arm that can do more than one thing. When Fab Lab Ísafjörður needed something to impress the President of Iceland and the First Lady, [Karítas](https://fabacademy.org/2018/labs/fablabreykjavik/students/karitassigurbjorg-bjornsdottir/) at [Fab Lab Sauðárkrókur](https://www.facebook.com/fablabsaudarkrokur/) was kind enough to loan us a [Niryo One](https://niryo.com/fr/product/niryo-one/), a 3D printed educational robot arm based on steppers and [Dynamixel](https://www.robotis.us/dynamixel/) servos. I programmed the robot to [hand the First Lady a laser cut business card](https://www.vestfirdir.is/is/vestfjardastofa/frettir/forsetahjonin-i-heimsokn), and had great fun experimenting with the robot. Then I fried one of its servo motors when a cable connector got stuck and the robot kept trying to move to its intended position. I managed to swap out the motor, but I thought that surely there's an improvement to be made here. 
+
+Since educational robot arms seem to be mostly used to move colored cubes around, I think it's OK to scale them down and simplify them to make them less expensive and more accessible. I'd like to base my arm on brushless motors without any gearing, and use springs to balance it, just like the [Anglepoise lamp](https://en.wikipedia.org/wiki/Anglepoise_lamp). Then it's nimble and can't damage anything. It won't be able to lift much, but that's OK! I only want it to lift a paint brush or a colored cube.
+
+#### Outline of the idea
+Since I have a history of frying robot arms, I have a few personal design goals for my arm.
+
+- Cannot hurt itself or the user
+- Easily programmed by moving the arm and saving key points and paths
+- Small
+- Cheap
+- Precise enough to paint candles for a local company :)
+
+#### I present Baksi the robot!
+
+I ended up changing to a SCARA design, since it doesn't stress the motors as much. I also 3D printed a part to put underneath each PCB to stiffen it and hide a bunch of wires. Here's my fun 1 minute final project video, showcasing the educational robot arm that I ended up making:
 
 <video controls width=100%>
         <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.mp4" type="video/mp4">
-    </video>*I'd love to show Baksi the robot arm at Maker Faire Shenzen.*
+    </video>*I'd love to show Baksi the robot arm at Maker Faire Shenzen and discuss how to adapt the design for manufacturing.*
 
-I'm planning to have Seeed Studio fabricate the boards for the next version of the Baksi robot arm. That version will be made of motors and PCBs and nothing else! I've checked, and the main parts are available in the Seeed Studio part catalogue. If there's interest, it would be exciting to also try to sell the robot as a kit in the Seeed Studio store. I really want to take this robot all the way to market, so that it can be used to teach electronics, robotics and programming in an interesting way.
+I'm planning to have Seeed Studio fabricate the boards for the next version of the Baksi robot arm. That version will be made of motors and PCBs and nothing else! A professionally produced FR4 PCB will be much stiffer than the FR1 boards that I milled, and when I order them from Seeed Studio I can use multiple layers to route all the wires that I need. I've checked, and the main parts (MCU and motor driver) are available in the Seeed Studio part catalogue. I also think Grove connectors for the motors and encoders would be really nice. If there's interest, it would be exciting to also try to sell the robot as a kit in the Seeed Studio store. I really want to take this robot all the way to market, so that it can be used to teach electronics, robotics and programming in a fun and engaging way. I even got a friend of mine to make a [GUI for Baksi](https://svavarkonn.github.io/MkDocs/seeed.html#baksi-software). Exciting times ahead!
 
 ## My first circuit
 
@@ -68,7 +94,7 @@ Here's a video of the sensor readings, it works really well:
       <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week11/ir_sensor.mp4" type="video/mp4">
 </video>
 
-### Measuring the analog signal
+#### Measuring the analog signal
 
 I connected the signal from the IR sensor to the oscilloscope and got a reading that changed with the light hitting the sensor:
 
@@ -76,7 +102,7 @@ I connected the signal from the IR sensor to the oscilloscope and got a reading 
       <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week11/analog_signal.mp4" type="video/mp4">
 </video>
 
-### Design files
+#### Design files
 
 I used [code from Adrian Torres](https://fabacademy.org/2020/labs/leon/students/adrian-torres/assignments/fabxiao/xiao_phototransistor/xiao_phototransistor.ino) to get readings in the serial plotter, but I changed the number of the analog read pin to A10.
 
@@ -93,7 +119,7 @@ And the Arduino code:
 
 [Download IR sensor Arduino code](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week11/xiao_phototransistor.ino){ .md-button }
 
-## Visualizing a light sensor
+#### Visualizing the light readings
 
 I experimented with creating a computer interface for the light sensor. The code that runs on the Xiao is very simple. It comes from Adrián Torres. The code uses analogRead to read the value from the IR sensor and then writes it to the serial port:
 
@@ -126,13 +152,13 @@ The following day I gave up and asked ChatGPT to change the code to make the two
       <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week14/ir_sensor_gui.mp4" type="video/mp4">
 </video>*We have a GUI that runs smoothly.*
 
-### Design files
+#### Design files
 
-[Download IR sensor Arduino code](files/week11/xiao_phototransistor.ino){ .md-button }
+[Download IR sensor Arduino code](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week11/xiao_phototransistor.ino){ .md-button }
 
-[Download Python terminal visualization code](files/week14/serialVisualizer.py){ .md-button }
+[Download Python terminal visualization code](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week14/serialVisualizer.py){ .md-button }
 
-[Download Python GUI code](files/week14/ir_sensor5.py){ .md-button }
+[Download Python GUI code](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week14/ir_sensor5.py){ .md-button }
 
 ## The tea machine
 
@@ -145,10 +171,10 @@ The clean aesthetics of the machine are thanks to [Hafey](https://fabacademy.org
 
 In the Fab Academy, we talk about spiral development. The trick to developing a working product is to make a very rough version the whole thing (instead of perfecting a small part of it) and then doing another spiral to fix bugs and add features, and so on as long as you have time.
 
-### Machine controller spiral 1
+#### Machine controller spiral 1
 ![L298N module on a breadboard](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week10/breadboard_l298n.jpg){: style="width:100%"}*Machine control spiral 1: An L298N stepper driver module on a breadboard with a SparkFun RedBoard, which is essentially the same thing as an Arduino Uno.*
 
-### Machine controller spiral 2
+#### Machine controller spiral 2
 
 The second spiral was to make a custom board with a Xiao RP2040 microcontroller module, a DRV8825 StepStick motor controller, 12V input pins from a lab power supply and GPIO breakout pins for a servo and two buttons. In Machine Week I made my biggest leap forward in electronics design. I also developed my methodical method of breadboarding and testing the hardware and software, one element at a time, before transferring the design over to KiCAD.
 
@@ -172,7 +198,7 @@ I only had through-hole female headers, so I bent their legs in order to be able
 
 ![Behind the machine](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week10/reality.jpg){: style="width:100%"}*The reality behind the facade. The USB hub (with AC adapter) and the big power supply are only there to supply 5V to the Xiao and 12V to the stepper driver, because we didn't have time to learn how to make a power supply. I realized then that I need to think seriously about a neat way to power my final project.*
 
-### Machine controller spiral 3 (not my work)
+#### Machine controller spiral 3 (not my work)
 
 ![Stepper Modular Thing](https://fabacademy.org/2023/labs/akureyri/students/andri-semundsson/images/myStepperHbridgeBoardSoldered.JPG){: style="width:100%"}*The first Stepper Modular Thing that [Andri](https://fabacademy.org/2023/labs/akureyri/students/andri-semundsson/index.html) made. He had to do considerable editing to make the circuit fabricatable.*
 
@@ -187,7 +213,7 @@ Andri proceeded to make the board and Árni soldered the components onto it. It 
     </video>*The second Stepper Modular Thing that Andri made. Wow! It's powered by the USB port!*
 
 We didn't have time to integrate it into our machine, but I'm very glad that Andri and our instructors were able to make a working Modular Thing. Seeing the Stepper Modular Thing working and being able to make the machine control board successfully combined to give me the confidence to try to make a robot arm joint immediately when I arrived back in Ísafjörður.
-## Our instructors
+#### Our instructors
 
 We are lucky to have these instructors. Here are some images to prove it:
 
@@ -201,11 +227,9 @@ My instructor Þórarinn also disassembled a stepper motor and showed us how it 
 
 ## My final project
 
-## Final project spiral 1
+### Final project spiral 1
 
-### Yuichi's board
-
-Then I tried Yuichi Tamiya's [Modular Things stepper board](http://academany.fabcloud.io/fabacademy/2023/instructors-bootcamp/Projects/xiao_rp2040_hbridges/).
+After Machine Week, I tried making Yuichi Tamiya's [Modular Things stepper board](http://academany.fabcloud.io/fabacademy/2023/instructors-bootcamp/Projects/xiao_rp2040_hbridges/).
 
 ![Yuichi Tamiya's Modular Things stepper board](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/yuichi_brd.jpg){: style="width:100%"}*Yuichi Tamiya's Modular Things stepper board from the 2023 instructor bootcamp in Amsterdam.*
 
@@ -223,7 +247,7 @@ This is the last board that Andri made in [Machine week](https://fabacademy.org/
 
 [Download svavar-stepper.js ](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week09/svavar-stepper.js){ .md-button }
 
-### Spiral 1 3D design
+#### Spiral 1 3D design
 
 I was so excited to see a motor moving that I immediately started to design 3D printed parts for spiral 1 of my robot arm.
 
@@ -234,20 +258,20 @@ A few days after I designed the shape, I decided to change the orientation of th
 ![Stepper festing](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/stepper_festing.jpg){: style="width:100%"}*This Fusion 360 model is named stepper_festing, which means stepper_bracket. I only meant to design a fixture for the stepper, but it quickly turned into a whole robot arm.*
 
 ![Spiral 1 assembly](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/spiral1_assembly.jpg){: style="width:100%"}*Assembling spiral 1 of my robot arm.*
-### Robot base
+#### Robot base
 
 ![Spiral 1 base](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/spiral1_base.jpg){: style="width:100%"}*The 3D printed base for spiral 1 of my robot arm. The support material came easily away from the part in one piece. Neat!*
 
 ![Spiral 1 base - bottom view](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/spiral1_bottom.jpg){: style="width:100%"}*Here's the Stepper RP2040 Modular Thing that I made for the stepper in the base of the arm. Look closely and you'll see the tiny white TPU washers that I made avoid making contact between the screws and the traces.*
 
-### Spiral 1 assembly
+#### Spiral 1 assembly
 
 ![Arm spiral 1](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/arm_spiral_1.jpg){: style="width:100%"}*Robot arm spiral 1.*
 
 #### Design file
 
 [Download robot arm spiral 1 Fusion 360 model](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week09/stepper_festing.f3z){ .md-button }
-### My PCB design
+#### My PCB design
 
 I heavily modified Yuichi's board, changing the shape and adding header pins, so that I could use all the Xiao RP2040's pins. I can now connect the brushless motor to the two H-bridges (it needs one and a half H-bridge) and I can connect the encoder to 3.3 V, ground and a digital pin on the Xiao.
 
@@ -263,7 +287,7 @@ I also added a 7-11V power input for the brushless motor. Yuichi's stepper board
 #### Design files
 
 [Download Robot joint v1 KiCAD project](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week09/arm1.zip){ .md-button }
-### Putting Dupont connectors on the motor
+#### Putting Dupont connectors on the motor
 
 The power connector that came with the motor is too small for the standard 2.54 mm pin headers in the Fab Lab Inventory, so my instructor Þórarinn showed me how to crimp Dupont connectors onto the wires.
 
@@ -277,7 +301,7 @@ The power connector that came with the motor is too small for the standard 2.54 
     ![Crimping](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/crimp.jpg){: style="width:100%"}*Crimping the connector onto the wire. More recently I've started to use narrow nose pliers instead. Then I can control exactly how the crimping goes and I don't waste as many Dupont connectors.*
 === "Part 5"
     ![Finished Dupont connector](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/dupont2.jpg){: style="width:100%"}*Triple Dupont connector, ready for service.*
-### PCB production
+#### PCB production
 
 ![Joint 1 traces](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/joint1-traces.jpg){: style="width:100%"}*Under `number of offsets` (off screen) I typed -1, to have the milling machine clear all the excess copper off the board. I thought this was the safest move, since I'll be putting a BLDC motor with an aluminum chassis onto the board.*
 
@@ -285,10 +309,10 @@ The power connector that came with the motor is too small for the standard 2.54 
 
 ![Joint v1 components](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/joint1_components.jpg){: style="width:100%"}*The components for arm joint v1, with a general comment on component labeling.*
 
-### Scaling problem
+#### Scaling problem
 
 The holes for the brushless motor screws were too far apart. How could that be? I exported the arm profile with the holes directly to DXF from Fusion 360, imported them into KiCAD and then exported to SVG without modifications. My instructor Þórarinn suggested that my DPI settings in Inkscape and Fab Modules might be off. If you check the [Fab Modules](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/joint1-traces.jpg) image, you'll see that the resolution was automatically set to 999.99 dots per inch, instead of 1000.
-### Oh no, torn motor pins!
+#### Oh no, torn motor pins!
 
 I tore the motor pins off the board when I was trying to insert the connector. The copper also came off the board.
 
@@ -296,7 +320,7 @@ I tore the motor pins off the board when I was trying to insert the connector. T
 
 This was very frustrating. I had to stop working, cool off and come back the next day. With a level head, I thought that I might actually be able to save this board using the adhesive-backed copper sheet that I use on the vinyl cutter.
 
-### The fix
+#### The fix
 
 === "Part 1"
     ![Fix 1](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/fix1.jpg){: style="width:100%"}*First I cut the `MOTOR OUTPUT` and `CURRENT SENSE` letters off the board with a box cutter.*
@@ -308,7 +332,7 @@ This was very frustrating. I had to stop working, cool off and come back the nex
     ![Fix 4](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/fix4.jpg){: style="width:100%"}*Then I carefully soldered the horizontal header pins onto the copper sheet and made a solder bridge from the sheets to the traces on the board.*
 === "Part 5"
     ![Fix 5](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/fix5.jpg){: style="width:100%"}*Finally I added some hot glue to add a little bit of strength.*
-### Stepper control with my board
+#### Stepper control with my board
 
 <video controls width=100%>
   <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week09/driving_stepper.mp4" type="video/mp4">
@@ -328,7 +352,7 @@ Now I know that the right pins are 7, 2 and 4. I get good PWM output for the mot
 
 [Download Svavar stepper Modular Things JavaScript code](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week09/svavar-stepper.js){ .md-button }
 
-### LED PWM test
+#### LED PWM test
 
 Before trying to move the brushless motor, I checked whether I was getting a sinusoidal PWM on three output pins. I did this by outputting the motor control signals to the RGB LED that is built into the Xiao RP2040 board. I used Adrian's pinout image of the Xiao RP2040 many, many times because it contains the Arduino pin numbers:
 
@@ -342,7 +366,7 @@ Before trying to move the brushless motor, I checked whether I was getting a sin
 
 [Download sinusoidal PWM for RGB LED Arduino code](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week09/Open_loop_RGB.ino){ .md-button }
 
-### BLDC control with my board
+#### BLDC control with my board
 
 Here I'm controlling the BLDC with sinusoidal PWM signals:
 
@@ -353,7 +377,7 @@ Here I'm controlling the BLDC with sinusoidal PWM signals:
 #### Design files
 
 [Download sinusoidal L298N brushless control Arduino code](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/files/week09/Open_loop_L298N.ino){ .md-button }
-### Debugging
+#### Debugging
 
 The brushless motor moved erratically no matter what I tried. I wondered if I had soldered the wrong capacitors onto the board. I tried to measure them with a component tester:
 
@@ -374,9 +398,9 @@ I also noticed a lot of compliance in the structure. It seems to stem mostly fro
 </video>
 
 
-## Final project spiral 2
+### Final project spiral 2
 
-## Basic shape study
+#### Basic shape study
 
 ![Shape sketches](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/basic_shape_study.jpg){: style="width:100%"}*Basic shape study. Since the arm is made of flat PCBs, I don't have many parameters to play with.*
 
@@ -396,7 +420,7 @@ I eventually decided to make all the joints the same shape, because it's simpler
 
 [Download base](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baksi_base_final.f3z){ .md-button }
 
-## Electronics design
+#### Electronics design
 
 I swapped out the Xiao SAMD21 for the bare SAMD21 microcontroller. I made this design spiral in the Fab Lab and I'm planning to have Seeed Studio make the boards for design spiral 3.
 
@@ -404,15 +428,21 @@ I swapped out the Xiao SAMD21 for the bare SAMD21 microcontroller. I made this d
 
 ![Baks robot joint PCB layout](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/baks_pcb.jpg){:style="width:100%"}*The baksi robot joint PCB layout.*
 
-## PCB production
+#### PCB production
 
-My first attempt at milling the PCB failed, and I broke the smallest end mill (the 0.01" one). I only have one left now. Looking back, I made the fundamental mistake of not making a small test of the most challenging aspect of the process. I'm going to try a V-bit now.
+My first attempt at milling the PCB failed, and I broke the smallest end mill (the 0.01" one). I only have one left now. Looking back, I made the fundamental mistake of not making a small test of the most challenging aspect of the process. Then I tried a V-bit:
+
+![Victory!](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/victory.jpg){: style="width:100%"}*The moment I realized that I could finish my Fab Academy final project.*
+
+I went to the video conferencing screen in the lab with my hands up in victory, and they guys celebrated with me.
+
+![Beautiful traces](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/beautiful_traces.jpg){: style="width:100%"}*Look at those beautiful traces.*
 
 When soldering the teeny tiny DRV8313 motor driver onto my beautiful board, I found that its legs are very thin and flexible, and so when you've fastened the driver to the big ground plane with a heat gun, you can bend the legs into place, as long as they're close to their intended copper pad.
 
 After soldering, I successfully put the bootloader on the SAMD21 chip and then programmed it with the SimpleFOC code. But I got no reading from the magnetic angle sensor and the serial monitor said that it detected no movement from the motor. The motor sounded weird.
 
-### Design files
+#### Design files
 
 [Download baks KiCAD project](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks.zip){ .md-button }
 
@@ -423,7 +453,7 @@ After soldering, I successfully put the bootloader on the SAMD21 chip and then p
 [Download baks_joint2_holes_interior.png](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/files/baks_joint2_holes_interior.png){ .md-button }
 
 
-## Sensing board
+#### Sensing board
 
 I also made a sensing board for Baksi. It contains an endstop button for the Z-axis as well as a capacitive step-response proximity sensor, so that it can sense when a human gets too close, and stop moving. It has a Xiao SAMD21.
 
@@ -437,7 +467,7 @@ After a bit of Googling I found the [solution](https://naidoff.medium.com/how-to
 
 But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but they didn't work. I also tried my Blink all pins sketch, where I make every pin from 0 to 40 blink once and write its number to the serial monitor at the same time. But now the problem was that after uploading, the device disappeared and so I couldn't get data from it through the serial port. So I tried blinking the LED as many times as the number of the pin that I was testing, After a good wait, I counted twelve blinks on my red LED. Alright. I connected every pin to an LED using my [LED debugging board](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/week08.html#pcb-milling) and was able to get the pinout of the Xiao Femto.
 
-### Final project presentation
+#### Final project presentation
 
 ![Presentation Slide](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.png){: style="width:100%"}*Presentation slide.*
 
@@ -445,9 +475,13 @@ But what's the pinout of the Xiao Femto? I tried the Xiao SAMD21 pin numbers but
         <source src="https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/presentation.mp4" type="video/mp4">
     </video>*1 minute presentation video.*
 
-[![Live presentation](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/fab_academy_2023_cycle.jpg){: style="width:100%" }](https://vimeo.com/835552516#t=6:17)*Here I am presenting my final project to Professor [Neil Gershenfeld](https://youtu.be/YDjOS0VHEr4) and the instructors and students in the 2023 Fab Academy cycle. [Link to the video.](https://vimeo.com/835552516#t=6:17)*
+[![Live presentation](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/images/fab_academy_community.jpg){: style="width:100%" }](https://vimeo.com/835552516#t=6:17)*Here I am presenting my final project to Professor [Neil Gershenfeld](https://youtu.be/YDjOS0VHEr4) and the instructors and students in the 2023 Fab Academy cycle. [Link to the video.](https://vimeo.com/835552516#t=6:17)*
 
-## Baksi software
+As for the outcome of the final project: I love how you can see all the electronic components and yet the robot has a clean look and all the wires are hidden. All of them! That took a LOT of system integration work. The robot actually looks pretty much exactly like I envisioned it.
+
+However, assembling the robot was hell. Wires kept breaking and it was difficult to get them into the 3D printed part. I wouldn't want to do it like this again. This was spiral 2. In spiral 3, I want to design a multilayer PCB that contains all the wires that are currently hidden inside the 3D printed part. Then I can realize my [original vision](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/final-project/ideas.html#idea-1-baks-the-robot-arm) of a robot that is made of motors and PCB and nothing else! And it will still have a clean look!
+
+#### Baksi software
 
 After the Fab Academy, I received a grant from the Icelandic government to hire a university student to make a graphical user interface to control Baksi the robot. Here is the resulting software, written in Python:
 
@@ -457,4 +491,4 @@ The software was written by Guðjón Bergmann, who is studying Aerospace Enginee
 
 ![Guðjón Bergmann](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/gudjon.jpg){: style="width:100%"}*Guðjón Bergmann.*
 
-I look forward to continuing the project!
+I look forward to continuing the project with the help of Seeed Studio. I'm excited to get professionally manufactured (and perhaps also assembled) boards. It may also be useful to order a few precision 3D printed parts and CNC milled aluminum brackets for the Z-axis motors. I need to do a fair bit of customizing to make an improved, clean-looking Z-axis. Coming soon!
