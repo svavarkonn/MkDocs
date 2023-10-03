@@ -78,7 +78,9 @@ Here I've programmed the button to turn on the LED:
 
 ## IR sensor board
 
-I used the IR phototransistor from the fab library twice, to represent both the IR emitter and the phototransistor. For this board I'm using obsolete parts from the 2012 Fab Lab inventory that still work really well; the [OP280KT](https://www.digikey.com/en/products/detail/tt-electronics-optek-technology/OP280KT/1853375?s=N4IgTCBcDaIMwDYCsBaAjAFgOwAZ0oDsATEAXQF8g) IR emitter and the matched [OP580](https://www.digikey.com/en/products/detail/tt-electronics-optek-technology/OP580/768513?s=N4IgTCBcDaIMwDYCsBaAjGhZ0oHYBMQBdAXyA) phototransistor. They are have a more square shape than their modern counterparts, but I checked the datasheets and their footprints are close enough to what I have in the KiCAD library now.
+A few times now I've wanted to have LEDs connected to every pin on a microcontroller in order to verify which pin is which, and to see if my code is outputting what I think it is. 
+
+I used the IR phototransistor from the "fab" KiCAD library twice, to represent both the IR emitter and the phototransistor. For this board I'm using obsolete parts from the 2012 Fab Lab inventory that still work really well; the [OP280KT](https://www.digikey.com/en/products/detail/tt-electronics-optek-technology/OP280KT/1853375?s=N4IgTCBcDaIMwDYCsBaAjAFgOwAZ0oDsATEAXQF8g) IR emitter and the matched [OP580](https://www.digikey.com/en/products/detail/tt-electronics-optek-technology/OP580/768513?s=N4IgTCBcDaIMwDYCsBaAjGhZ0oHYBMQBdAXyA) phototransistor. They are have a more square shape than their modern counterparts, but I checked the datasheets and their footprints are close enough to what I have in the KiCAD library now.
 
 ![IR sensor schematic](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week11/ir_sensor_schematic.jpg){: style="width:100%"}*My Xiao IR sensor schematic.*
 
@@ -220,7 +222,7 @@ I only had through-hole female headers, so I bent their legs in order to be able
 
 After 3D printing all the parts for the [linear motion axis](https://gitlab.cba.mit.edu/quentinbolsee/beehive-axes), [Andri](https://fabacademy.org/2023/labs/akureyri/students/andri-semundsson/index.html) worked tirelessly on the third spiral, which was to make a [Modular Things stepper controller board](https://github.com/modular-things/modular-things-circuits/tree/main/xiao). We were really excited about this solution, but this design really thin traces and two layers, making it difficult to make. Andri made lots of modifications to the design in Fusion 360 in order to make the traces thicker and reroute everything so that it fit on one layer. He successfully milled the board and soldered all the components to it, but it didn't work. Unfortunately, the motor drivers in the original design need a higher voltage than 5V to work. The designer, Quentin Bolsée was very responsive to our questions.
 
-Then our instructors [Árni](https://fabacademy.org/2022/labs/isafjordur/students/arni-bjornsson/) and Þórarinn(https://fabacademy.org/archives/2015/eu/students/gunnarsson.thorarinn_b.b/index.html), recalled that [Yuichi Tamiya](http://archive.fabacademy.org/fabacademy2017/fablabkamakura/students/44/index.html) at Fab Lab Kannai made a [working version](http://academany.fabcloud.io/fabacademy/2023/instructors-bootcamp/Projects/xiao_rp2040_hbridges/) of the Modular Things stepper control board at the 2023 instructor bootcamp in Amsterdam.
+Then our instructors [Árni](https://fabacademy.org/2022/labs/isafjordur/students/arni-bjornsson/) and [Þórarinn](https://fabacademy.org/archives/2015/eu/students/gunnarsson.thorarinn_b.b/index.html), recalled that [Yuichi Tamiya](http://archive.fabacademy.org/fabacademy2017/fablabkamakura/students/44/index.html) at Fab Lab Kannai made a [working version](http://academany.fabcloud.io/fabacademy/2023/instructors-bootcamp/Projects/xiao_rp2040_hbridges/) of the Modular Things stepper control board at the 2023 instructor bootcamp in Amsterdam.
 
 Andri proceeded to make the board and Árni soldered the components onto it. It worked on the first try!
 
@@ -515,16 +517,20 @@ However, assembling the robot was hell. Wires kept breaking and it was difficult
 
 #### Baksi software
 
-After the Fab Academy, I received a grant from the Icelandic government to hire a university student to make a graphical user interface to control Baksi the robot. Here is the resulting software, written in Python:
+After the Fab Academy, I received a grant from the Icelandic government to hire a university student to make a graphical user interface to control Baksi the robot. That was his summer job. A lot has happened in 2023, and the year isn't over yet! Here is the resulting software, written in Python:
 
 ![Baksi GUI](images/baksi_gui.png){: style="width:100%" }*Version 1 of the Baksi GUI.*
 
-The software was written by Guðjón Bergmann, who is studying Aerospace Engineering at TU Delft. We've made a robot together [before](https://www.youtube.com/watch?v=z3g7qeER0sY).
+The software was written by Guðjón Bergmann, who is studying Aerospace Engineering at TU Delft. We've made a robot together [before](https://www.youtube.com/watch?v=e56HBhzVuP0).
 
 ![Guðjón Bergmann](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/assignments/images/week18/gudjon.jpg){: style="width:100%"}*Guðjón Bergmann.*
 
 #### Next steps
 
-I look forward to continuing the project with the help of Seeed Studio. I'm excited to get professionally manufactured (and perhaps also assembled) boards. It may also be useful to order a few precision 3D printed parts and CNC milled aluminum brackets for the Z-axis motors. I need to do a fair bit of customizing to make an improved, clean-looking Z-axis. Coming soon!
+I look forward to continuing the project with the help of Seeed Studio. I'm excited to get professionally manufactured (and probably also assembled) boards. It may also be useful to order a few precision 3D printed parts and CNC milled aluminum brackets for the Z-axis motors. I need to do a fair bit of customizing to make an improved, clean-looking Z-axis. Coming soon!
 
 (I have higher resolution images and videos if you want.)
+
+I hope to see you in Shenzen!
+
+![Svavar Konráðsson](https://fabacademy.org/2023/labs/isafjordur/students/svavar-konradsson/images/svavar.jpg){: style="width:100%"}*Svavar Konráðsson, Ísafjörður, Iceland*
